@@ -6,4 +6,5 @@ public class Admin {
     public void confirmReservation() {}
     public void denyReservation() {}
     public void editReservation() {}
+    //test
 }
