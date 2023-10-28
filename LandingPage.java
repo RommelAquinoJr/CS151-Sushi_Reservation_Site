@@ -10,7 +10,7 @@ public class LandingPage extends JFrame implements ActionListener{
     public LandingPage() {
         this.setTitle("Restaurant Reservations"); 
         this.setSize(600,400); 
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         
 
         JPanel panel = new JPanel(); 
