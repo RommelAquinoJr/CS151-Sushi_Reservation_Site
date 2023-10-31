@@ -1,14 +1,30 @@
+import java.time.LocalDate;
+
 public class Customer {
     private double phoneNumber;
     private String email;
     private String name;
     private String reservationID;
+    private LocalDate time;
 
 
-    public void searchRestaurant() {}
+    public void searchRestaurant(String name) {
+        
+    }
 
 
-    public void addReservation() {}
+    /**
+     * Adds reservation to the ReservationList
+     * @param name
+     * @param email
+     * @param pn
+     * @param time
+     */
+    public void addReservation(String name, String email, double pn, LocalDate time) {
+        Reservation newRes = new Reservation(name, email, pn, time);
+        
+
+    }
     
     
     public void editReservation() {}
