@@ -62,7 +62,7 @@ public class LandingPage extends JFrame implements ActionListener{
         if ("Admin Login".equals(command)) {
             new AdminLoginPage();
         } else if ("Book Restaurant".equals(command)) {
-            System.out.println("test");
+            new ReservationList();
             
         } else if ("Cancel Reservation".equals(command)) {
             System.out.println("test");

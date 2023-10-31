@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.util.Vector;
 
+import javax.accessibility.AccessibleAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +18,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ReservationList {
+public class ReservationList extends JFrame {
     private String customerName;
     private String time;
     private String phoneNum;
@@ -28,11 +29,9 @@ public class ReservationList {
     private JTextField customerField;
     private JTextField phoneNumField;
     private JTextField timeField;
-    public static void main(String[] args){
-        ReservationList app = new ReservationList();
-        app.reservationListGUI();
-    }
-    private void reservationListGUI(){
+  
+    public ReservationList(){
+
         frame = new JFrame("Reservation List");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
