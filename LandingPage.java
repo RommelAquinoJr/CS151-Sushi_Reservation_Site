@@ -38,13 +38,13 @@ public class LandingPage extends JFrame implements ActionListener{
         JPanel horizontalButtonPanel = new JPanel(); 
         horizontalButtonPanel.setLayout(new FlowLayout());
 
-        JButton adminCreateAcc = new JButton("Admin: Create an Account"); 
-        adminCreateAcc.addActionListener(this); 
+        // JButton adminCreateAcc = new JButton("Admin: Create an Account"); 
+        // adminCreateAcc.addActionListener(this); 
 
         JButton cancelRes = new JButton("Cancel Reservation"); 
         cancelRes.addActionListener(this); 
 
-        horizontalButtonPanel.add(adminCreateAcc); 
+        // horizontalButtonPanel.add(adminCreateAcc); 
         horizontalButtonPanel.add(cancelRes); 
 
         panel.add(horizontalButtonPanel); 
@@ -53,9 +53,20 @@ public class LandingPage extends JFrame implements ActionListener{
         this.add(panel); 
         this.setVisible(true); 
     }
+    
+
 
     @Override 
     public void actionPerformed(ActionEvent e) { 
-        System.out.println("test"); 
+        String command = e.getActionCommand();
+        if ("Admin Login".equals(command)) {
+            new AdminLoginPage();
+        } else if ("Book Restaurant".equals(command)) {
+            System.out.println("test");
+            
+        } else if ("Cancel Reservation".equals(command)) {
+            System.out.println("test");
+            
+        }
     }
 }
