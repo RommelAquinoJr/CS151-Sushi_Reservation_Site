@@ -18,5 +18,6 @@ public class ReservationGUI {
         frame.setTitle("Sushi Reservation Site");
         frame.pack();
         frame.setVisible(true);
+        //test
     }
 }
