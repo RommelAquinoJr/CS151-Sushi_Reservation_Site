@@ -37,7 +37,7 @@ public class Reservation {
         Random rand = new Random();
 
         for(int value = 0; value < 6; value ++) {
-            int randVal = rand.nextInt(1);
+            int randVal = rand.nextInt(2);
             if(randVal == 0) {
                 int randLetter = rand.nextInt(26);
                 char letter = letters.charAt(randLetter);
