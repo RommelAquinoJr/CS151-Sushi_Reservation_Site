@@ -11,20 +11,6 @@ public class Customer {
     public void searchRestaurant(String name) {
         
     }
-
-
-    /**
-     * Adds reservation to the ReservationList
-     * @param name
-     * @param email
-     * @param pn
-     * @param time
-     */
-    public void addReservation(String name, String email, double pn, LocalDate time) {
-        Reservation newRes = new Reservation(name, email, pn, time);
-        
-
-    }
     
     
     public void editReservation() {}

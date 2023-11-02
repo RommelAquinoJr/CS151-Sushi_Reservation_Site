@@ -6,6 +6,7 @@ public class Reservation {
     private LocalDate time;
     private double phoneNum;
     private String email;
+    public String letters  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     /**
      * Creates a Reservation at a restaurant 
@@ -20,5 +21,24 @@ public class Reservation {
         this.phoneNum = pn;
         this.time = time;
         // Generate random string for reservationID
+    }
+
+
+    public String generateID() {
+
+        return reservationID;
+    }
+
+    /**
+     * Adds reservation to the ReservationList
+     * @param name
+     * @param email
+     * @param pn
+     * @param time
+     */
+    public void addReservation(String name, String email, double pn, LocalDate time) {
+        Reservation newRes = new Reservation(name, email, pn, time);
+        
+
     }
 }
