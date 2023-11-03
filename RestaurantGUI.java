@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,8 +23,11 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         this.setSize(250, 250);
 
         // Makes window full screen, but slowly not instant
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        // this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize.width, screenSize.height);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         JPanel panel = new JPanel(new FlowLayout());
         JPanel restaurants = new JPanel(new GridLayout(2, 3));
