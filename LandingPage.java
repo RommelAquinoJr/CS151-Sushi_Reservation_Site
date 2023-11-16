@@ -5,9 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;  
 
 public class LandingPage extends JFrame implements ActionListener{
+    private MainGUI mainGUI;
 
     //landing page constructor
-    public LandingPage() {
+    public LandingPage(MainGUI mainGUI) {
+        this.mainGUI = mainGUI; 
+        
         this.setTitle("Restaurant Reservations"); 
         this.setSize(600,400); 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
@@ -38,17 +41,12 @@ public class LandingPage extends JFrame implements ActionListener{
         JPanel horizontalButtonPanel = new JPanel(); 
         horizontalButtonPanel.setLayout(new FlowLayout());
 
-        // JButton adminCreateAcc = new JButton("Admin: Create an Account"); 
-        // adminCreateAcc.addActionListener(this); 
-
         JButton cancelRes = new JButton("Cancel Reservation"); 
         cancelRes.addActionListener(this); 
 
-        // horizontalButtonPanel.add(adminCreateAcc); 
         horizontalButtonPanel.add(cancelRes); 
 
         panel.add(horizontalButtonPanel); 
-
 
         this.add(panel); 
         this.setVisible(true); 
@@ -60,12 +58,13 @@ public class LandingPage extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) { 
         String command = e.getActionCommand();
         if ("Admin Login".equals(command)) {
-            new AdminLoginPage();
+            mainGUI.showAdminLoginPage(); 
+
         } else if ("Book Restaurant".equals(command)) {
-            System.out.println("test");
-            
+            mainGUI.showReservationPage();
+
         } else if ("Cancel Reservation".equals(command)) {
-            System.out.println("test");
+            mainGUI.showCancelReservationPage(); 
             
         }
     }
