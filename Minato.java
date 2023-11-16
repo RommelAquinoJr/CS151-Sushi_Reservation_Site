@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -70,7 +71,7 @@ public class Minato extends JFrame implements ActionListener{
          * 
          */
 
-        // Adding a JPanel over the  image
+        // Adding a JPanel over the image
         JPanel restInfo = new JPanel();
         restInfo.setBounds(50, 100, 300, 400);
         restInfo.setBackground(new Color(225, 214, 202));
@@ -89,25 +90,49 @@ public class Minato extends JFrame implements ActionListener{
 
         // Adding contact and location
         JLabel address = new JLabel("Address: 617 N 6th St, San Jose, CA 95112");
-        address.setBounds(25, 300, 275, 50);
+        address.setBounds(25, 275, 275, 50);
 
         JLabel phone = new JLabel("Phone: (408) 998-9711");
-        phone.setBounds(25, 325, 275, 50);
+        phone.setBounds(25, 300, 275, 50);
 
         restInfo.add(address);
         restInfo.add(phone);
 
+        buttons.setBounds(15, 350, 275, 50);
+
+        restInfo.add(buttons);
+
+
+        // Creating JPanel for Appetizer info
+        JPanel appetizers = new JPanel();
+        appetizers.setLayout(null);
+        appetizers.setBounds(400, 100, 1000, 600);
+        appetizers.setBackground(new Color(225, 214, 202));
+
+        // Title of section
+        JLabel appTitle = new JLabel("Appetizers");
+        appTitle.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 30));
+        appTitle.setForeground(new Color(176, 191, 147));
+        appTitle.setBounds(5, 5, 1000, 40);
+
+        
+        appetizers.add(appTitle);
+
         
 
-        // adding appetizers to background section
+        // adding restaurant info to background section
         background.add(restInfo, LEFT_ALIGNMENT);
+
+        background.add(appetizers);
+
+        
 
 
         // Adding everything to the frame
 
         frame.add(background);
         
-        frame.add(buttons, BorderLayout.NORTH);
+        // frame.add(buttons, BorderLayout.NORTH);
 
         frame.setVisible(true);
     }
