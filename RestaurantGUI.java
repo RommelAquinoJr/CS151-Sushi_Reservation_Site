@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -22,9 +23,6 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(250, 250);
 
-        // Makes window full screen, but slowly not instant
-        // this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(screenSize.width, screenSize.height);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -39,11 +37,16 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         rightPanel.setPreferredSize(new Dimension(50, 50));
         bottomPanel.setPreferredSize(new Dimension(50, 50));
 
-        JButton rest1 = new JButton("rest1");
+        ImageIcon minato = new ImageIcon("Minato_logo_w-text.jpg");
+
+        JButton rest1 = new JButton("Minato Japanese Sushi");
         JButton rest2 = new JButton("rest2");
         JButton rest3 = new JButton("rest3");
         JButton rest4 = new JButton("rest4");
         JButton rest5 = new JButton("rest5");
+
+        rest1.addActionListener(this);
+        rest1.setIcon(minato);
 
         restaurants.add(rest1);
         restaurants.add(rest2);
@@ -72,6 +75,10 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         if ("Return".equals(command)) {
             this.setVisible(false);
             new LandingPage();
+        }
+        else if("Minato Japanese Sushi".equals(command)) {
+            this.setVisible(false);
+            new Minato();
         }
     }
 }
