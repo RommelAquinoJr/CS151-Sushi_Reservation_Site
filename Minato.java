@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 
 public class Minato extends JFrame implements ActionListener{
     public JFrame frame;
+    private ReservationList resList;
 
     /**
      * Displays the webpage for the Minato Japanese Restaurant portion
@@ -43,6 +45,7 @@ public class Minato extends JFrame implements ActionListener{
         // frame.setContentPane(background);
 
         JPanel buttons = new JPanel(new FlowLayout());
+        buttons.setBackground(new Color(225, 214, 202));
 
         // Button to return to Restaurant page
         JButton returnh = new JButton("return");
@@ -58,13 +61,46 @@ public class Minato extends JFrame implements ActionListener{
         buttons.add(reserve);
 
 
+        /*
+         * Colors to use maybe?:
+         * 
+         * tan: #e1d6ca - 225, 214, 202
+         * white: #f2efed - 242, 239, 237
+         * green: #b0bf93 - 176, 191, 147
+         * 
+         */
+
         // Adding a JPanel over the  image
-        JPanel appetizers = new JPanel();
-        appetizers.setSize(200, 400);
-        appetizers.setBounds(50, 100, 200, 400);
+        JPanel restInfo = new JPanel();
+        restInfo.setBounds(50, 100, 300, 400);
+        restInfo.setBackground(new Color(225, 214, 202));
+        restInfo.setLayout(null);
+
+        // Adding Restaurant Logo to side info panel
+        ImageIcon restIcon = new ImageIcon("Minato_logo_w-text.jpg");
+        Image tempIcon = restIcon.getImage();
+        Image adjIcon = tempIcon.getScaledInstance(250, 250, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon newIcon = new ImageIcon(adjIcon);
+
+        JLabel restImage = new JLabel(newIcon);
+        restImage.setBounds(25, 25, 250, 250);
+
+        restInfo.add(restImage);
+
+        // Adding contact and location
+        JLabel address = new JLabel("Address: 617 N 6th St, San Jose, CA 95112");
+        address.setBounds(25, 300, 275, 50);
+
+        JLabel phone = new JLabel("Phone: (408) 998-9711");
+        phone.setBounds(25, 325, 275, 50);
+
+        restInfo.add(address);
+        restInfo.add(phone);
+
+        
 
         // adding appetizers to background section
-        background.add(appetizers, LEFT_ALIGNMENT);
+        background.add(restInfo, LEFT_ALIGNMENT);
 
 
         // Adding everything to the frame
