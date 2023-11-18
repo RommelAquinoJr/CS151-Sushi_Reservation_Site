@@ -153,8 +153,4 @@ public class Minato extends JFrame implements ActionListener{
             new ReservationList();
         }
     }
-
-    public static void main(String[] args) {
-        new Minato();
-    }
 }
