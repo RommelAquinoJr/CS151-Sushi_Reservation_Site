@@ -19,8 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-
-public class Minato implements ActionListener{
+public class Omogari implements ActionListener{
     public JFrame frame;
     private ReservationList resList;
     public JLabel[] apps = new JLabel[4];
@@ -30,9 +29,8 @@ public class Minato implements ActionListener{
      * Displays the webpage for the Minato Japanese Restaurant portion
      * of the site
      */
-    public Minato() {
-        frame = new JFrame("Minato Japanese Sushi");
-        frame.setTitle("Minato Japanese Sushi");
+    public Omogari() {
+        frame = new JFrame("Omogari");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -93,7 +91,7 @@ public class Minato implements ActionListener{
         restInfo.setLayout(null);
 
         // Adding Restaurant Logo to side info panel
-        ImageIcon restIcon = new ImageIcon("Images/Minato_logo_w-text.jpg");
+        ImageIcon restIcon = new ImageIcon("Images/omogari.png");
         Image tempIcon = restIcon.getImage();
         Image adjIcon = tempIcon.getScaledInstance(250, 250, java.awt.Image.SCALE_SMOOTH);
         ImageIcon newIcon = new ImageIcon(adjIcon);
@@ -104,10 +102,10 @@ public class Minato implements ActionListener{
         restInfo.add(restImage);
 
         // Adding contact and location
-        JLabel address = new JLabel("Address: 617 N 6th St, San Jose, CA 95112");
+        JLabel address = new JLabel("Address: 154 Jackson St, San Jose, CA 95112");
         address.setBounds(25, 275, 275, 50);
 
-        JLabel phone = new JLabel("Phone: (408) 998-9711");
+        JLabel phone = new JLabel("Phone: (408) 288-8134");
         phone.setBounds(25, 300, 275, 50);
 
         restInfo.add(address);
@@ -178,9 +176,5 @@ public class Minato implements ActionListener{
             // frame.setVisible(false);
             new ReservationList();
         }
-    }
-
-    public static void main(String[] args) {
-        new Minato();
     }
 }

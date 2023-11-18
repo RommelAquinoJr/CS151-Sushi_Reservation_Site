@@ -1,8 +1,12 @@
 package Restaurants;
+
+import Main.LandingPage;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,9 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-import Main.LandingPage;
-
+import javax.swing.border.Border;
 
 public class RestaurantGUI extends JFrame implements ActionListener{
 
@@ -41,15 +43,32 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         bottomPanel.setPreferredSize(new Dimension(50, 50));
 
         ImageIcon minato = new ImageIcon("Images/Minato_logo_w-text.jpg");
+        ImageIcon kaita = new ImageIcon("Images/kaitaLogo.jpg");
+        ImageIcon koya = new ImageIcon("Images/SushiKoya.png");
+        ImageIcon kaizoku = new ImageIcon("Images/kaizokuLogo.jpg");
+        ImageIcon omogari = new ImageIcon("Images/omogari.png");
 
         JButton rest1 = new JButton("Minato Japanese Sushi");
-        JButton rest2 = new JButton("rest2");
-        JButton rest3 = new JButton("rest3");
-        JButton rest4 = new JButton("rest4");
-        JButton rest5 = new JButton("rest5");
+        JButton rest2 = new JButton("Kaita Restaurant");
+        JButton rest3 = new JButton("Sushi Koya");
+        JButton rest4 = new JButton("Kaizoku Sushi");
+        JButton rest5 = new JButton("Omogari");
 
         rest1.addActionListener(this);
         rest1.setIcon(minato);
+
+        rest2.addActionListener(this);
+        rest2.setIcon(kaita);
+
+        rest3.addActionListener(this);
+        rest3.setIcon(koya);
+
+        rest4.addActionListener(this);
+        rest4.setIcon(kaizoku);
+
+        rest5.addActionListener(this);
+        rest5.setIcon(omogari);
+
 
         restaurants.add(rest1);
         restaurants.add(rest2);
@@ -82,6 +101,22 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         else if("Minato Japanese Sushi".equals(command)) {
             this.setVisible(false);
             new Minato();
+        }
+        else if("Kaita Restaurant".equals(command)) {
+            this.setVisible(false);
+            new Kaita();
+        }
+        else if("Sushi Koya".equals(command)) {
+            this.setVisible(false);
+            new SushiKoya();
+        }
+        else if("Kaizoku Sushi".equals(command)) {
+            this.setVisible(false);
+            new Kaizoku();
+        }
+        else if("Omogari".equals(command)) {
+            this.setVisible(false);
+            new Omogari();
         }
     }
 }
