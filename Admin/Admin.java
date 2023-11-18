@@ -1,3 +1,4 @@
+package Admin;
 public class Admin {
     private String userName;
     private boolean isLoggedIn = false;

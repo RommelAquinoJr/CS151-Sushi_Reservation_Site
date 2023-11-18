@@ -1,7 +1,11 @@
+<<<<<<< HEAD:MainGUI.java
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
 import javax.swing.*; 
+=======
+package Main;
+>>>>>>> upstream/main:Main/MainGUI.java
 
 public class MainGUI {
    private JFrame frame; 
