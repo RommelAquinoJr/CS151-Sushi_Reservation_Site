@@ -179,8 +179,4 @@ public class Minato implements ActionListener{
             new ReservationList();
         }
     }
-
-    public static void main(String[] args) {
-        new Minato();
-    }
 }
