@@ -1,11 +1,12 @@
-<<<<<<< HEAD:MainGUI.java
+package Main;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 
-import javax.swing.*; 
-=======
-package Main;
->>>>>>> upstream/main:Main/MainGUI.java
+import javax.swing.*;
+
+import Admin.AdminLoginPage;
+import ReservationFile.ReservationList; 
+
 
 public class MainGUI {
    private JFrame frame; 
@@ -60,14 +61,14 @@ public class MainGUI {
    }
 
    public void showReservationPage() {
-      ReservationGUI reservatoinGUI = new ReservationGUI(this); 
+      ReservationList reservatoinGUI = new ReservationList(); 
       cardPanel.add(reservatoinGUI, "reservationPage");
       cardLayout.show(cardPanel, "reservationPage"); 
    }
 
-   public void showRestaurantPage() {
+   // public void showRestaurantPage() {
       
-   }
+   // }
 
    public static void main(String[] args) {
       MainGUI mg = new MainGUI(); 
