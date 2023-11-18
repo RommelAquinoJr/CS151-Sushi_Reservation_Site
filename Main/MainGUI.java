@@ -36,11 +36,9 @@ public class MainGUI {
          
       }
 
-      //cardPanel.add(landingPage, "landingPage");  
       CardLayout cardLayout = (CardLayout) cardPanel.getLayout(); 
       frame.revalidate();
       frame.repaint();
-      //frame.setVisible(true);
 
       cardLayout.show(cardPanel, "landing Page"); 
 
