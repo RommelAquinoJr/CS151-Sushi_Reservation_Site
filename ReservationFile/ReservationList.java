@@ -1,30 +1,28 @@
 package ReservationFile;
 
-import java.time.LocalDate;
 import java.util.Vector;
-
-import javax.accessibility.AccessibleAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class ReservationList extends JFrame {
     private String customerName;
     private String time;
     private String phoneNum;
-
     private JFrame frame;
     private DefaultTableModel tableModel;
     private JTable table;
@@ -35,7 +33,7 @@ public class ReservationList extends JFrame {
     public ReservationList(){
 
         frame = new JFrame("Reservation List");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         //Create a table
@@ -59,17 +57,15 @@ public class ReservationList extends JFrame {
                 addRes();
             }
         });
-        JButton cancelButton = new JButton("Cancel");
 
         //Add fields and button to panel
-        panel.add(new JLabel("Customer"));
+        panel.add(new JLabel("Customer Name"));
         panel.add(customerField);
         panel.add(new JLabel(" Phone Number"));
         panel.add(phoneNumField);
         panel.add(new JLabel("Time:"));
         panel.add(timeField);
         panel.add(confirmButton);
-        panel.add(cancelButton);
 
 
         //add all elements
@@ -84,18 +80,61 @@ public class ReservationList extends JFrame {
         phoneNum = phoneNumField.getText();
         time = timeField.getText();
         
-        if(!customerName.isEmpty() && !phoneNum.isEmpty() && !time.isEmpty()){
+        if(isValidCustomerInfo(customerName, phoneNum, time)){ //Validate customer's info
             Vector<String> rowData = new Vector<>();
             rowData.add(customerName);
             rowData.add(phoneNum);
             rowData.add(time);
             tableModel.addRow(rowData);
+            new Reservation(customerName, phoneNum, time); //Create a reservation
             customerField.setText("");
             phoneNumField.setText("");
             timeField.setText("");
+        }else {
+        // Display an error message or take appropriate action
+        JOptionPane.showMessageDialog(this, "Invalid customer information. Please check and try again.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void deleteRes(String reservationID) {
 
+    /**
+     * Validate customer information.
+     * @param name Customer's name
+     * @param phone Customer's phone number
+     * @param reservationTime Customer's reservation time
+     * @return True if customer information is valid, false otherwise
+     */
+    public boolean isValidCustomerInfo(String name, String phone, String reservationTime){
+        return isValidName(name) && isValidPhoneNumber(phone) && isValidTime(reservationTime);
+    }
+    /**
+     * Validate customer's phoneNumber
+     * @param phone Customer's phone number
+     * @return True if customer's informatin is valid, false otherwise
+     */ 
+    private boolean isValidPhoneNumber(String phone){
+        return phone.matches("\\d+") && phone.length() == 10;
+    }
+
+    /**
+     * Validate customer's reservation time.
+     * @param time Customer's reservation time
+     * @return True if the reservation time is valid, false otherwise
+     */
+    private boolean isValidTime(String time){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        try{
+            dateFormat.parse(time);
+            return true;
+        } catch(ParseException e){
+            return false;
+        }
+    }
+        /**
+     * Validate customer's name.
+     * @param name Customer's name
+     * @return True if the name is valid, false otherwise
+     */
+    private boolean isValidName(String name) {
+        return !name.isEmpty() && name.matches("^[a-zA-Z\\s-]+$");
     }
 }
