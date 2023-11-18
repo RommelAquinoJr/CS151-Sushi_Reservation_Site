@@ -1,3 +1,4 @@
+package Restaurants;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -10,7 +11,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
+
+import Main.LandingPage;
+
 
 public class RestaurantGUI extends JFrame implements ActionListener{
 
@@ -37,7 +40,7 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         rightPanel.setPreferredSize(new Dimension(50, 50));
         bottomPanel.setPreferredSize(new Dimension(50, 50));
 
-        ImageIcon minato = new ImageIcon("Minato_logo_w-text.jpg");
+        ImageIcon minato = new ImageIcon("Images/Minato_logo_w-text.jpg");
 
         JButton rest1 = new JButton("Minato Japanese Sushi");
         JButton rest2 = new JButton("rest2");

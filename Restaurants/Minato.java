@@ -1,3 +1,4 @@
+package Restaurants;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import ReservationFile.ReservationList;
 
 
 public class Minato extends JFrame implements ActionListener{
@@ -34,7 +37,7 @@ public class Minato extends JFrame implements ActionListener{
 
 
         // Sets the background of the window with the "sushiBackground.png"
-        ImageIcon sushi = new ImageIcon("sushiBackground.jpg");
+        ImageIcon sushi = new ImageIcon("Images/sushiBackground.jpg");
         Image newS = sushi.getImage();
         Image adjS = newS.getScaledInstance(screenSize.width, screenSize.height, java.awt.Image.SCALE_SMOOTH);
         ImageIcon newSushi = new ImageIcon(adjS);
@@ -78,7 +81,7 @@ public class Minato extends JFrame implements ActionListener{
         restInfo.setLayout(null);
 
         // Adding Restaurant Logo to side info panel
-        ImageIcon restIcon = new ImageIcon("Minato_logo_w-text.jpg");
+        ImageIcon restIcon = new ImageIcon("Images/Minato_logo_w-text.jpg");
         Image tempIcon = restIcon.getImage();
         Image adjIcon = tempIcon.getScaledInstance(250, 250, java.awt.Image.SCALE_SMOOTH);
         ImageIcon newIcon = new ImageIcon(adjIcon);

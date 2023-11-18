@@ -1,4 +1,9 @@
+package Main;
 import javax.swing.*;
+
+import Admin.AdminLoginPage;
+import Restaurants.RestaurantGUI;
+
 import java.awt.*; 
 
 import java.awt.event.ActionEvent;
