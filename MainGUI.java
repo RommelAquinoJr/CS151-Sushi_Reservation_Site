@@ -61,11 +61,13 @@ public class MainGUI {
       cardLayout.show(cardPanel, "reservationPage"); 
    }
 
+   public void showRestaurantPage() {
+      
+   }
 
    public static void main(String[] args) {
       MainGUI mg = new MainGUI(); 
-      mg.showLandingPage();
-      // SwingUtilities.invokeLater(() -> new MainGUI()); 
+      mg.showLandingPage(); 
 
    }
 }

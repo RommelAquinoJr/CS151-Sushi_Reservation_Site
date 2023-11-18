@@ -1,3 +1,4 @@
+package GUI;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -12,13 +13,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import Minato;
+
+
 public class RestaurantGUI extends JFrame implements ActionListener{
+    private MainGUI mainGUI; 
 
     /**
      * Creates the main Restaurant page that displays all the listed Restaurants
      * to schedule a reservation at
      */
     public RestaurantGUI() {
+        this.mainGUI = mainGUI; 
         this.setTitle("Restaurant");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(250, 250);
@@ -74,7 +80,7 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         String command = e.getActionCommand();
         if ("Return".equals(command)) {
             this.setVisible(false);
-            new LandingPage();
+             mainGUI.showLandingPage();
         }
         else if("Minato Japanese Sushi".equals(command)) {
             this.setVisible(false);
