@@ -2,6 +2,7 @@ package Main;
 import javax.swing.*;
 
 import Admin.AdminLoginPage;
+import ReservationFile.ReservationList;
 import Restaurants.RestaurantGUI;
 
 import java.awt.*; 
@@ -63,14 +64,16 @@ public class LandingPage extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) { 
         String command = e.getActionCommand();
         if ("Admin Login".equals(command)) {
-            mainGUI.showAdminLoginPage(); 
+            // mainGUI.showAdminLoginPage(); 
+            new AdminLoginPage(); 
 
         } else if ("Book Restaurant".equals(command)) {
-            mainGUI.showReservationPage();
+            //mainGUI.showReservationPage();
+            new ReservationList(); 
 
         } else if ("Cancel Reservation".equals(command)) {
-            mainGUI.showCancelReservationPage(); 
-            
+            //mainGUI.showCancelReservationPage(); 
+            new CancelReservationPage(); 
         }
     }
 }
