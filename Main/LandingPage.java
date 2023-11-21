@@ -63,12 +63,15 @@ public class LandingPage extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) { 
         String command = e.getActionCommand();
         if ("Admin Login".equals(command)) {
+            this.setVisible(false);
             new AdminLoginPage(); 
 
         } else if ("Book Restaurant".equals(command)) {
+            this.setVisible(false);
             new RestaurantGUI(); 
 
         } else if ("Cancel Reservation".equals(command)) {
+            this.setVisible(false);
             new CancelReservationPage(); 
         } 
     }
