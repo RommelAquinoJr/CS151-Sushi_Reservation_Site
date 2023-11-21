@@ -56,7 +56,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
         } else if(e.getSource() == noButton) { //takes you back to home page  
             System.out.println("No");  
             dispose(); 
-            mainGUI.showLandingPage(); 
+            new LandingPage(); 
         }
     } 
     

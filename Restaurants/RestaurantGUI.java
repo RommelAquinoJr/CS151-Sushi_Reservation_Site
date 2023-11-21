@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import Main.LandingPage;
 import Main.MainGUI;
 
 public class RestaurantGUI extends JFrame implements ActionListener{
@@ -22,6 +23,7 @@ public class RestaurantGUI extends JFrame implements ActionListener{
      * Creates the main Restaurant page that displays all the listed Restaurants
      * to schedule a reservation at
      */
+
     public RestaurantGUI() {
         this.setTitle("Restaurant");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,7 +80,7 @@ public class RestaurantGUI extends JFrame implements ActionListener{
         String command = e.getActionCommand();
         if ("Return".equals(command)) {
             this.setVisible(false);
-            mainGUI.showLandingPage(); 
+            new LandingPage(); 
         }
         else if("Minato Japanese Sushi".equals(command)) {
             this.setVisible(false);

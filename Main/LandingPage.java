@@ -11,11 +11,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;  
 
 public class LandingPage extends JFrame implements ActionListener{
-    private MainGUI mainGUI;
+    //private MainGUI mainGUI;
 
     //landing page constructor
-    public LandingPage(MainGUI mainGUI) {
-        this.mainGUI = mainGUI; 
+    public LandingPage() {
         
         this.setTitle("Restaurant Reservations"); 
         this.setSize(600,400); 
@@ -64,13 +63,13 @@ public class LandingPage extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) { 
         String command = e.getActionCommand();
         if ("Admin Login".equals(command)) {
-            mainGUI.showAdminLoginPage(); 
+            new AdminLoginPage(); 
 
         } else if ("Book Restaurant".equals(command)) {
-            mainGUI.showReservationPage();
+            new RestaurantGUI(); 
 
         } else if ("Cancel Reservation".equals(command)) {
-            mainGUI.showCancelReservationPage(); 
-        }
+            new CancelReservationPage(); 
+        } 
     }
 }

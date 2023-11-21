@@ -12,8 +12,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
     private LandingPage landingPage; 
     private MainGUI mainGUI; 
 
-    public CancelReservationPage(MainGUI mainGUI) {
-        this.mainGUI = mainGUI;  
+    public CancelReservationPage() {
 
         this.setTitle("Cancel Reservation"); 
         this.setSize(300,200); 
@@ -52,7 +51,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
         } else if(e.getSource() == noButton) { //takes you back to home page  
             System.out.println("No");  
             dispose(); 
-            mainGUI.showLandingPage(); 
+            new LandingPage(); 
         }
     } 
     
