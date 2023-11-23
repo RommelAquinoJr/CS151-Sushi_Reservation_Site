@@ -121,7 +121,7 @@ public class Minato implements ActionListener{
         // Creating JPanel for Appetizer info
         JPanel appetizers = new JPanel();
         appetizers.setLayout(null);
-        appetizers.setBounds(400, 100, 1000, 600);
+        appetizers.setBounds(400, 100, 1000, 300);
         appetizers.setBackground(new Color(225, 214, 202));
 
         // Title of section
@@ -149,11 +149,45 @@ public class Minato implements ActionListener{
 
         appetizers.add(appTitle);
 
+
+
+        // Adding Sushi
+        JPanel sushipanel = new JPanel();
+        sushipanel.setLayout(null);
+        sushipanel.setBounds(400, 450, 1000, 300);
+        sushipanel.setBackground(new Color(225, 214, 202));
+
+        JLabel sushiTitle = new JLabel("Sushi");
+        sushiTitle.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 40));
+        sushiTitle.setBounds(20, 10, 1000, 40);
+
+        sushipanel.add(sushiTitle);
+
+
+        // Creating sushi
+        apps[0] = (app1 = new JLabel("TEKKA ROLL......................$6.99"));
+        apps[1] = (app2 = new JLabel("HAMACHI ROLL.................$6.99"));
+        apps[2] = (app3 = new JLabel("UNAGI ROLL......................$7.99"));
+        apps[3] = (app4 = new JLabel("MINATO ROLL...................$7.99"));
+
+        for(JLabel l : apps) {
+            l.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 30));
+            sushipanel.add(l);
+        }
+
+        apps[0].setBounds(20, 70, 1000, 40);
+        apps[1].setBounds(20, 120, 1000, 40);
+        apps[2].setBounds(20, 170, 1000, 40);
+        apps[3].setBounds(20, 220, 1000, 40);
+
         
+
+
 
         // adding restaurant info to background section
         background.add(restInfo);
         background.add(appetizers);
+        background.add(sushipanel);
         
 
 
@@ -178,5 +212,9 @@ public class Minato implements ActionListener{
             // frame.setVisible(false);
             new ReservationList();
         }
+    }
+
+    public static void main(String[] args) {
+        new Minato();
     }
 }
