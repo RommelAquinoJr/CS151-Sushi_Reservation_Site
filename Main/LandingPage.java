@@ -2,7 +2,7 @@ package Main;
 import javax.swing.*;
 
 import Admin.AdminLoginPage;
-import ReservationFile.ReservationList;
+import ReservationFile.CancelReservationPage;
 import Restaurants.RestaurantGUI;
 
 import java.awt.*; 
@@ -11,50 +11,52 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;  
 
 public class LandingPage extends JFrame implements ActionListener{
-    //private MainGUI mainGUI;
 
     //landing page constructor
     public LandingPage() {
         
-        this.setTitle("Restaurant Reservations"); 
-        this.setSize(600,400); 
+        this.setTitle("Restaurant Reserve"); 
+        this.setSize(600,440); 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+
+        JPanel mainPanel = new JPanel(); 
+        mainPanel.setLayout(new BorderLayout()); 
+
+        //create logo panel on the left 
+        JPanel logoPanel = new JPanel(); 
+        logoPanel.setBackground(Color.WHITE);
+
+        ImageIcon logoIcon = new ImageIcon("Images/app_logo.PNG"); 
+        Image scaledLogo = logoIcon.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH); 
+        ImageIcon scaledLogoIcon = new ImageIcon(scaledLogo); 
+
+        JLabel logoLabel = new JLabel(scaledLogoIcon); 
+        logoPanel.add(logoLabel); 
+
+        mainPanel.add(logoPanel, BorderLayout.WEST); 
         
 
-        JPanel panel = new JPanel(); 
-        panel.setLayout(new GridLayout(4,1)); 
-
-
-        //Vertical buttons (book restaurant + admin login)
-        JPanel verticalButtonPanel = new JPanel(); 
-        verticalButtonPanel.setLayout(new GridLayout(2,1)); 
+        //create panel for buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout()); 
 
         JButton bookRest = new JButton("Book Restaurant"); 
         bookRest.addActionListener(this);
-        
+
         JButton adminLogin = new JButton("Admin Login");
-        adminLogin.addActionListener(this); 
-       
-
-        verticalButtonPanel.add(bookRest); 
-        verticalButtonPanel.add(adminLogin); 
-        
-        panel.add(verticalButtonPanel); 
-
-        
-        //Horizontal buttons (admin create acc + cancel res)
-        JPanel horizontalButtonPanel = new JPanel(); 
-        horizontalButtonPanel.setLayout(new FlowLayout());
+        adminLogin.addActionListener(this);
 
         JButton cancelRes = new JButton("Cancel Reservation"); 
         cancelRes.addActionListener(this); 
+       
+        buttonPanel.add(bookRest); 
+        buttonPanel.add(adminLogin); 
+        buttonPanel.add(cancelRes); 
 
-        horizontalButtonPanel.add(cancelRes); 
+        mainPanel.add(buttonPanel, BorderLayout.CENTER); 
 
-        panel.add(horizontalButtonPanel); 
-
-        this.add(panel); 
+        this.add(mainPanel); 
         this.setVisible(true); 
+
     }
     
 
@@ -69,6 +71,7 @@ public class LandingPage extends JFrame implements ActionListener{
         } else if ("Book Restaurant".equals(command)) {
             this.setVisible(false);
             new RestaurantGUI(); 
+
 
         } else if ("Cancel Reservation".equals(command)) {
             this.setVisible(false);

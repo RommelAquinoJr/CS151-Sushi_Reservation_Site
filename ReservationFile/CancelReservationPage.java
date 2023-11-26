@@ -2,7 +2,6 @@ package ReservationFile;
 import javax.swing.*;
 
 import Main.LandingPage;
-import Main.MainGUI;
 
 import java.awt.*; 
 import java.awt.event.*;
@@ -10,14 +9,15 @@ import java.awt.event.*;
 public class CancelReservationPage extends JFrame implements ActionListener {
 
     private JTextField nameField; 
-    private JPasswordField reservationID; 
-    private JButton yesButton;  
-    private JButton noButton; 
-    private LandingPage landingPage; 
-    private MainGUI mainGUI; 
+    private JTextField reservationIDField; 
+    //private JTextField timeField; 
+    private JButton confirmButton;  
+    private JButton returnButton; 
+    private ReservationList reservationList; 
+   
+    
 
-    public CancelReservationPage(MainGUI mainGUI) {
-        this.mainGUI = mainGUI;  
+    public CancelReservationPage() {
 
         this.setTitle("Cancel Reservation"); 
         this.setSize(300,200); 
@@ -29,33 +29,45 @@ public class CancelReservationPage extends JFrame implements ActionListener {
         nameField.setEditable(true);
         this.add(nameField); 
 
-        this.add(new JLabel("ReservationID:"));
-        reservationID = new JPasswordField();
-        reservationID.setEditable(true); 
-        this.add(reservationID); 
+        this.add(new JLabel("Phone #:"));
+        reservationIDField = new JTextField(); 
+        reservationIDField.setEditable(true); 
+        this.add(reservationIDField); 
+
+        // this.add(new JLabel("Reservation time:"));
+        // timeField = new JTextField(); 
+        // timeField.setEditable(true);
+        // this.add(timeField); 
         
 
-        yesButton = new JButton("Yes");
-        yesButton.addActionListener(this); 
-        this.add(yesButton);   //says yes, confirming cancellation
+        confirmButton = new JButton("Confirm cancellation");
+        confirmButton.addActionListener(this); 
+        this.add(confirmButton);   //says yes, confirming cancellation
 
-        noButton = new JButton("No"); //says no, taking you back to keep the reservation 
-        noButton.addActionListener(this);
-        this. add(noButton); 
+        returnButton = new JButton("Return"); //says no, taking you back to keep the reservation 
+        returnButton.addActionListener(this);
+        this.add(returnButton); 
 
         this.setVisible(true);
 
-        
     }
    
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == yesButton) { //cancels reservation  
-            System.out.println("Yes");  
-            dispose();
-        } else if(e.getSource() == noButton) { //takes you back to home page  
-            System.out.println("No");  
-            dispose(); 
+        if(e.getSource() == confirmButton) { //cancels reservation  
+            String name = nameField.getText();
+            String resID = reservationIDField.getText(); 
+
+            if(!name.isEmpty() && !resID.isEmpty()) {
+                //reservationList.cancelRes(name, phoneNum, resTime); 
+                JOptionPane.showMessageDialog(this, "Reservation canceled successfully!");
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Please fill in all of the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } else if(e.getSource() == returnButton) { //takes you back to home page  
+            this.setVisible(false);
             new LandingPage(); 
         }
     } 

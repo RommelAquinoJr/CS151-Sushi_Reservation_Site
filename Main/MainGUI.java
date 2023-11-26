@@ -4,16 +4,9 @@ import java.awt.CardLayout;
 
 import javax.swing.*;
 
-import Admin.AdminLoginPage;
-import ReservationFile.ReservationList; 
-
-
 public class MainGUI extends JPanel{
    private JFrame frame; 
- 
-   private LandingPage landingPage = null; 
    
-
    public MainGUI() {
       new LandingPage(); 
       this.setVisible(true);
@@ -21,7 +14,7 @@ public class MainGUI extends JPanel{
    }
 
    public static void main(String[] args) {
-      MainGUI mg = new MainGUI(); 
-      
+      MainGUI mg = new MainGUI();
    }
+
 }

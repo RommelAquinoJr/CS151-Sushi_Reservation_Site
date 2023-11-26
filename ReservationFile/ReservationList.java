@@ -29,7 +29,7 @@ public class ReservationList extends JFrame {
     private JTextField customerField;
     private JTextField phoneNumField;
     private JTextField timeField;
-  
+
     public ReservationList(){
 
         frame = new JFrame("Reservation List");
@@ -137,4 +137,44 @@ public class ReservationList extends JFrame {
     private boolean isValidName(String name) {
         return !name.isEmpty() && name.matches("^[a-zA-Z\\s-]+$");
     }
+
+    protected void cancelRes(String customerName, String phoneNum, String time) {
+        
+        if(isValidCustomerInfo(customerName, phoneNum, time)){ //Validate customer's info
+            //Vector<String> rowData = new Vector<>();
+            // rowData.add(customerName);
+            // rowData.add(phoneNum);
+            // rowData.add(time);
+
+            DefaultTableModel model = (DefaultTableModel) table.getModel(); 
+            int rowIndexToRemove = findRowIndex(model, customerName, phoneNum, time); 
+
+            if(rowIndexToRemove != -1) {
+                model.removeRow(rowIndexToRemove);
+            } else {
+                JOptionPane.showMessageDialog(this, "Reservation not found for cancellation", "Error!", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    
+    }
+
+    private int findRowIndex(DefaultTableModel model, String customerName, String phoneNum, String time) {
+        for(int i = 0; i < model.getRowCount(); i++) {
+            // Vector<String> currentRow = new Vector<>(); 
+            // for(int j = 0; j < model.getColumnCount(); j++) {
+            //     currentRow.add(model.getValueAt(i, j).toString());
+            // } 
+            String custName = model.getValueAt(i,0).toString(); 
+            String customerPhoneNum = model.getValueAt(i, 1).toString(); 
+            String timeCol = model.getValueAt(i, 2).toString(); 
+            
+            if(custName.equals(customerName) && customerPhoneNum.equals(phoneNum)) {
+                return i; 
+            }
+        }
+
+        return -1; //row not found 
+    }
+
+   
 }
