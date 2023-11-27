@@ -1,7 +1,9 @@
 package ReservationFile;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import javax.swing.JButton;
@@ -26,14 +28,21 @@ public class ReservationList extends JFrame {
     private String customerName;
     private String time;
     private String phoneNum;
+    private String restaurantName; 
+
     private JFrame frame;
     private DefaultTableModel tableModel;
     private JTable table;
     private JTextField customerField;
     private JTextField phoneNumField;
     private JTextField timeField;
-    private static Map<String, Reservation> reservationMap = new HashMap<>();; //maye hashmap
-    public ReservationList(){
+    private Map<String, Reservation> reservationMap = new HashMap<>(); //maye hashmap
+
+
+    public ReservationList(String restaurantName) {
+        this.restaurantName = restaurantName; 
+        this.reservationMap = new HashMap<>(); 
+
         frame = new JFrame("Reservation List");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -97,6 +106,8 @@ public class ReservationList extends JFrame {
             rowData.add(time);
             tableModel.addRow(rowData);
             Reservation res = new Reservation(customerName, phoneNum, time); //Create a reservation
+            res.setRestaurantName(restaurantName);
+
             reservationMap.put(res.getID(),res);
             customerField.setText("");
             phoneNumField.setText("");
@@ -182,6 +193,16 @@ public class ReservationList extends JFrame {
         }
 
         return -1; //row not found 
+    }
+
+    public List<Reservation> getReservations(String restName) {
+        List<Reservation> restaurantReservations = new ArrayList<>();
+        for(Reservation r: reservationMap.values()) {
+            if(restName.equals(r.getRestaurantName())) {
+                restaurantReservations.add(r); 
+            }
+        }
+        return restaurantReservations; 
     }
 
 }

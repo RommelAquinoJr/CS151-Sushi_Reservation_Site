@@ -234,7 +234,7 @@ public class Kaizoku implements ActionListener{
         }
         else if("Make Reservation".equals(command)) {
             // frame.setVisible(false);
-            new ReservationList();
+            new ReservationList("Kaizoku");
         }
     }
 }

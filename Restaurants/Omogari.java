@@ -1,5 +1,6 @@
 package Restaurants;
 
+import ReservationFile.Reservation;
 import ReservationFile.ReservationList;
 
 import java.awt.BorderLayout;
@@ -21,7 +22,8 @@ import javax.swing.JScrollPane;
 
 public class Omogari implements ActionListener{
     public JFrame frame;
-    private ReservationList resList;
+    // private ReservationList resList; 
+
     public JLabel[] apps = new JLabel[4];
     public JLabel app1, app2, app3, app4;
 
@@ -243,7 +245,8 @@ public class Omogari implements ActionListener{
         }
         else if("Make Reservation".equals(command)) {
             // frame.setVisible(false);
-            new ReservationList();
+            new ReservationList("Omogari"); 
+            //new ReservationList();
         }
     }
 }

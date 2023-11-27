@@ -6,6 +6,8 @@ public class Reservation {
     private String customerName;
     private String time;
     private String phoneNum;
+    private String restaurantName; 
+
     public String letters  = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public String numbers = "0123456789";
 
@@ -37,6 +39,14 @@ public class Reservation {
     }
     public String getPhone(){
         return phoneNum;
+    }
+    
+    public String getRestaurantName(){
+        return restaurantName; 
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName; 
     }
 
     /**

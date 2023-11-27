@@ -61,7 +61,7 @@ public class Kaita implements ActionListener{
         buttons.setBackground(new Color(225, 214, 202));
 
         // Button to return to Restaurant page
-        JButton returnh = new JButton("return");
+        JButton returnh = new JButton("Return");
         returnh.addActionListener(this);
         returnh.setSize(100, 100);
 
@@ -222,13 +222,13 @@ public class Kaita implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        if ("return".equals(command)) {
+        if ("Return".equals(command)) {
             frame.setVisible(false);
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
             // frame.setVisible(false);
-            new ReservationList();
+            new ReservationList("Kaita");
         }
     }
 

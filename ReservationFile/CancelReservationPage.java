@@ -16,8 +16,8 @@ public class CancelReservationPage extends JFrame implements ActionListener {
     private ReservationList reservationList; 
    
 
-    public CancelReservationPage() {
-        reservationList = new ReservationList();
+    public CancelReservationPage(ReservationList reservationList) {
+        this.reservationList = reservationList;  
         this.setTitle("Cancel Reservation"); 
         this.setSize(300,200); 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
