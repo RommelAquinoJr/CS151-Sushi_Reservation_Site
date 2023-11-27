@@ -116,6 +116,13 @@ public class ReservationList extends JFrame {
      * @return True if customer information is valid, false otherwise
      */
     public boolean isValidCustomerInfo(String name, String phone, String reservationTime){
+        //Check for duplicated time
+        for(Reservation res: reservationMap.values()){
+            if(reservationTime.equals(res.getTime())){
+                JOptionPane.showMessageDialog(this, "Reservation at the time is already booked", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        }
         return isValidName(name) && isValidPhoneNumber(phone) && isValidTime(reservationTime);
     }
     /**
@@ -165,10 +172,6 @@ public class ReservationList extends JFrame {
 
     private int findRowIndex(DefaultTableModel model, String customerName, String phoneNum, String time) {
         for(int i = 0; i < model.getRowCount(); i++) {
-            // Vector<String> currentRow = new Vector<>(); 
-            // for(int j = 0; j < model.getColumnCount(); j++) {
-            //     currentRow.add(model.getValueAt(i, j).toString());
-            // } 
             String custName = model.getValueAt(i,0).toString(); 
             String customerPhoneNum = model.getValueAt(i, 1).toString(); 
             String timeCol = model.getValueAt(i, 2).toString(); 
@@ -181,8 +184,4 @@ public class ReservationList extends JFrame {
         return -1; //row not found 
     }
 
-    // public static ReservationList getInstance() {
-    //     return reservationMap;
-    // }
-   
 }
