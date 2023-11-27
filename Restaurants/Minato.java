@@ -2,7 +2,6 @@ package Restaurants;
 
 import ReservationFile.ReservationList;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -131,10 +130,10 @@ public class Minato implements ActionListener{
         appTitle.setBounds(20, 10, 1000, 40);
 
         // Creating appetizers
-        apps[0] = (app1 = new JLabel("HIYAYAKKO......................$4.99"));
-        apps[1] = (app2 = new JLabel("GYOZA(6PCS)....................$4.99"));
-        apps[2] = (app3 = new JLabel("EDAME..............................$2.99"));
-        apps[3] = (app4 = new JLabel("SASHIMI............................$12.99"));
+        apps[0] = (app1 = new JLabel("HIYAYAKKO...........................................$4.99"));
+        apps[1] = (app2 = new JLabel("GYOZA(6PCS).........................................$4.99"));
+        apps[2] = (app3 = new JLabel("EDAME...................................................$2.99"));
+        apps[3] = (app4 = new JLabel("SASHIMI.................................................$12.99"));
 
         for(JLabel l : apps) {
             l.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 30));
@@ -151,29 +150,27 @@ public class Minato implements ActionListener{
         appetizers.add(appTitle);
 
 
+        // Adding Drinks
+        JPanel drinkPanel = new JPanel();
+        drinkPanel.setLayout(null);
+        drinkPanel.setBounds(400, 450, 1000, 300);
+        drinkPanel.setBackground(new Color(225, 214, 202));
 
-        // Adding Sushi
-        JPanel sushipanel = new JPanel();
-        sushipanel.setLayout(null);
-        sushipanel.setBounds(400, 450, 1000, 300);
-        sushipanel.setBackground(new Color(225, 214, 202));
+        JLabel drinkTitle = new JLabel("Drinks");
+        drinkTitle.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 40));
+        drinkTitle.setBounds(20, 10, 1000, 40);
 
-        JLabel sushiTitle = new JLabel("Sushi");
-        sushiTitle.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 40));
-        sushiTitle.setBounds(20, 10, 1000, 40);
+        drinkPanel.add(drinkTitle);
 
-        sushipanel.add(sushiTitle);
-
-
-        // Creating sushi
-        apps[0] = (app1 = new JLabel("TEKKA ROLL......................$6.99"));
-        apps[1] = (app2 = new JLabel("HAMACHI ROLL.................$6.99"));
-        apps[2] = (app3 = new JLabel("UNAGI ROLL......................$7.99"));
-        apps[3] = (app4 = new JLabel("MINATO ROLL...................$7.99"));
+        // Creating Drinks
+        apps[0] = (app1 = new JLabel("FOUNTAIN DRINKS.................................$1.99"));
+        apps[1] = (app2 = new JLabel("BEER.......................................................$3.99"));
+        apps[2] = (app3 = new JLabel("WINE.......................................................$10.99"));
+        apps[3] = (app4 = new JLabel("Sake.......................................................$4.99"));
 
         for(JLabel l : apps) {
             l.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 30));
-            sushipanel.add(l);
+            drinkPanel.add(l);
         }
 
         apps[0].setBounds(20, 70, 1000, 40);
@@ -181,22 +178,45 @@ public class Minato implements ActionListener{
         apps[2].setBounds(20, 170, 1000, 40);
         apps[3].setBounds(20, 220, 1000, 40);
 
-        
 
+        // Adding Main Dishes
+        JPanel entreePanel = new JPanel();
+        entreePanel.setLayout(null);
+        entreePanel.setBounds(400, 800, 1000, 300);
+        entreePanel.setBackground(new Color(225, 214, 202));
+
+        JLabel entreeTitle = new JLabel("Main Dishes");
+        entreeTitle.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 40));
+        entreeTitle.setBounds(20, 10, 1000, 40);
+
+        entreePanel.add(entreeTitle);
+
+        // Creating Main Dishes
+        apps[0] = (app1 = new JLabel("WORLD FAMOUS TERIYAKI SPARERIBS...$16.99"));
+        apps[1] = (app2 = new JLabel("SHASHIMI...............................................$28.99"));
+        apps[2] = (app3 = new JLabel("KATSU CURRY........................................$6.99"));
+        apps[3] = (app4 = new JLabel("SABA (BROILED MACKEREL)....................$7.99"));
+
+        for(JLabel l : apps) {
+            l.setFont(new Font("SANSERIF BOLD", Font.PLAIN, 30));
+            entreePanel.add(l);
+        }
+
+        apps[0].setBounds(20, 70, 1000, 40);
+        apps[1].setBounds(20, 120, 1000, 40);
+        apps[2].setBounds(20, 170, 1000, 40);
+        apps[3].setBounds(20, 220, 1000, 40);
 
 
         // adding restaurant info to background section
         background.add(restInfo);
         background.add(appetizers);
-        background.add(sushipanel);
-        
+        background.add(entreePanel);
+        background.add(drinkPanel);
 
 
         // Adding everything to the frame
-
-        // frame.add(background);
         frame.getContentPane().add(scroll);
-
 
         frame.setVisible(true);
     }
