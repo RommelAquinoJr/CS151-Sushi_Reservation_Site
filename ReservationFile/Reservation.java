@@ -25,6 +25,19 @@ public class Reservation {
         this.reservationID = id;
     }
 
+    //Getters
+    public String getID(){
+        return reservationID;
+    }
+    public String getName(){
+        return customerName;
+    }
+    public String getTime(){
+        return time;
+    }
+    public String getPhone(){
+        return phoneNum;
+    }
 
     /**
      * Generates a random string of letters and numbers to for the Reservation ID

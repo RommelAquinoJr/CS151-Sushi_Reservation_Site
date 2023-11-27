@@ -21,6 +21,7 @@ import javax.swing.JScrollPane;
 
 
 public class Minato implements ActionListener{
+    public static ReservationList instance; //Singleton ReservationList
     public JFrame frame;
     private ReservationList resList;
     public JLabel[] apps = new JLabel[4];
@@ -209,11 +210,11 @@ public class Minato implements ActionListener{
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
-            // frame.setVisible(false);
             new ReservationList();
         }
     }
 
+    
     public static void main(String[] args) {
         new Minato();
     }

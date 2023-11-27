@@ -8,31 +8,30 @@ import java.awt.event.*;
 
 public class CancelReservationPage extends JFrame implements ActionListener {
 
-    private JTextField nameField; 
-    private JTextField reservationIDField; 
+    // private JTextField idField; 
+    private JTextField idField; 
     //private JTextField timeField; 
     private JButton confirmButton;  
     private JButton returnButton; 
     private ReservationList reservationList; 
    
-    
 
     public CancelReservationPage() {
-
+        reservationList = new ReservationList();
         this.setTitle("Cancel Reservation"); 
         this.setSize(300,200); 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         this.setLayout(new GridLayout(4, 2)); 
 
-        add(new JLabel("Name:"));
-        nameField = new JTextField();
-        nameField.setEditable(true);
-        this.add(nameField); 
+        // add(new JLabel("Name:"));
+        // idField = new JTextField();
+        // idField.setEditable(true);
+        // this.add(idField); 
 
-        this.add(new JLabel("Phone #:"));
-        reservationIDField = new JTextField(); 
-        reservationIDField.setEditable(true); 
-        this.add(reservationIDField); 
+        this.add(new JLabel("Please entor your ID:"));
+        idField = new JTextField(); 
+        idField.setEditable(true); 
+        this.add(idField); 
 
         // this.add(new JLabel("Reservation time:"));
         // timeField = new JTextField(); 
@@ -55,11 +54,10 @@ public class CancelReservationPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == confirmButton) { //cancels reservation  
-            String name = nameField.getText();
-            String resID = reservationIDField.getText(); 
+            String id = idField.getText(); 
 
-            if(!name.isEmpty() && !resID.isEmpty()) {
-                //reservationList.cancelRes(name, phoneNum, resTime); 
+            if(!id.isEmpty()) {
+                reservationList.cancelRes(id); 
                 JOptionPane.showMessageDialog(this, "Reservation canceled successfully!");
                 this.setVisible(false);
             } else {

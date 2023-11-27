@@ -1,5 +1,8 @@
 package ReservationFile;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Vector;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,9 +32,8 @@ public class ReservationList extends JFrame {
     private JTextField customerField;
     private JTextField phoneNumField;
     private JTextField timeField;
-
+    private static Map<String, Reservation> reservationMap = new HashMap<>();; //maye hashmap
     public ReservationList(){
-
         frame = new JFrame("Reservation List");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setLayout(new BorderLayout());
@@ -41,10 +43,17 @@ public class ReservationList extends JFrame {
         tableModel.addColumn("Customer Name");
         tableModel.addColumn("Phone Number");
         tableModel.addColumn("Reserved Time");
-        
+        //Loop throught the reservation list to create a table
+        for(Reservation res: reservationMap.values()){
+            Vector<String> rowData = new Vector<>();
+            rowData.add(res.getName());
+            rowData.add(res.getPhone());
+            rowData.add(res.getTime());
+            tableModel.addRow(rowData);
+        }
         table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
-
+        
         //Create pannel with Flow layout
         JPanel panel = new JPanel(new FlowLayout());
         customerField = new JTextField(15);
@@ -58,6 +67,7 @@ public class ReservationList extends JFrame {
             }
         });
 
+        
         //Add fields and button to panel
         panel.add(new JLabel("Customer Name"));
         panel.add(customerField);
@@ -86,13 +96,15 @@ public class ReservationList extends JFrame {
             rowData.add(phoneNum);
             rowData.add(time);
             tableModel.addRow(rowData);
-            new Reservation(customerName, phoneNum, time); //Create a reservation
+            Reservation res = new Reservation(customerName, phoneNum, time); //Create a reservation
+            reservationMap.put(res.getID(),res);
             customerField.setText("");
             phoneNumField.setText("");
             timeField.setText("");
+            JOptionPane.showMessageDialog(this, "Reserveration successfully added. Please use this id if you want to cancel reservation: " + res.getID(), "Success", JOptionPane.INFORMATION_MESSAGE);
         }else {
-        // Display an error message or take appropriate action
-        JOptionPane.showMessageDialog(this, "Invalid customer information. Please check and try again.", "Error", JOptionPane.ERROR_MESSAGE);
+            // Display an error message or take appropriate action
+            JOptionPane.showMessageDialog(this, "Invalid customer information. Please check and try again.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
@@ -138,24 +150,17 @@ public class ReservationList extends JFrame {
         return !name.isEmpty() && name.matches("^[a-zA-Z\\s-]+$");
     }
 
-    protected void cancelRes(String customerName, String phoneNum, String time) {
-        
-        if(isValidCustomerInfo(customerName, phoneNum, time)){ //Validate customer's info
-            //Vector<String> rowData = new Vector<>();
-            // rowData.add(customerName);
-            // rowData.add(phoneNum);
-            // rowData.add(time);
-
-            DefaultTableModel model = (DefaultTableModel) table.getModel(); 
-            int rowIndexToRemove = findRowIndex(model, customerName, phoneNum, time); 
-
-            if(rowIndexToRemove != -1) {
-                model.removeRow(rowIndexToRemove);
-            } else {
-                JOptionPane.showMessageDialog(this, "Reservation not found for cancellation", "Error!", JOptionPane.ERROR_MESSAGE);
-            }
+    protected void cancelRes(String id) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel(); 
+        String customerName = reservationMap.get(id).getName();
+        String phoneNum = reservationMap.get(id).getPhone();
+        String time = reservationMap.get(id).getTime();
+        int rowIndexToRemove = findRowIndex(model, customerName, phoneNum, time); 
+        if(rowIndexToRemove != -1) {
+            model.removeRow(rowIndexToRemove);
+        } else {
+            JOptionPane.showMessageDialog(this, "Reservation not found for cancellation", "Error!", JOptionPane.ERROR_MESSAGE);
         }
-    
     }
 
     private int findRowIndex(DefaultTableModel model, String customerName, String phoneNum, String time) {
@@ -168,7 +173,7 @@ public class ReservationList extends JFrame {
             String customerPhoneNum = model.getValueAt(i, 1).toString(); 
             String timeCol = model.getValueAt(i, 2).toString(); 
             
-            if(custName.equals(customerName) && customerPhoneNum.equals(phoneNum)) {
+            if(custName.equals(customerName) && customerPhoneNum.equals(phoneNum) && timeCol.equals(time)) {
                 return i; 
             }
         }
@@ -176,5 +181,8 @@ public class ReservationList extends JFrame {
         return -1; //row not found 
     }
 
+    // public static ReservationList getInstance() {
+    //     return reservationMap;
+    // }
    
 }
