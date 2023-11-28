@@ -30,16 +30,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
         idField = new JTextField(); 
         idField.setEditable(true); 
         this.add(idField); 
-
         
-        
-
-        // this.add(new JLabel("Reservation time:"));
-        // timeField = new JTextField(); 
-        // timeField.setEditable(true);
-        // this.add(timeField); 
-        
-
         confirmButton = new JButton("Confirm cancellation");
         confirmButton.addActionListener(this); 
         this.add(confirmButton);   //says yes, confirming cancellation
