@@ -1,9 +1,6 @@
 package ReservationFile;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import javax.swing.JButton;
@@ -36,12 +33,26 @@ public class ReservationList extends JFrame {
     private JTextField customerField;
     private JTextField phoneNumField;
     private JTextField timeField;
-    private Map<String, Reservation> reservationMap = new HashMap<>(); //maye hashmap
+    private Map<String, Reservation> reservationMap; //maye hashmap
+    private static Map<String, Reservation> minato = new HashMap<>();
+    private static Map<String, Reservation> kaita = new HashMap<>();
+    private static Map<String, Reservation> kaizoku = new HashMap<>();
+    private static Map<String, Reservation> omogari = new HashMap<>();
+    private static Map<String, Reservation> sushikoya = new HashMap<>();
+
 
 
     public ReservationList(String restaurantName) {
-        this.restaurantName = restaurantName; 
-        this.reservationMap = new HashMap<>(); 
+        if(restaurantName.equals("Minato"))
+            this.reservationMap = minato;
+        else if(restaurantName.equals("Kaita"))
+            this.reservationMap = kaita;
+        else if(restaurantName.equals("Kaizoku"))
+            this.reservationMap = kaizoku;
+        else if(restaurantName.equals("Omogari"))
+            this.reservationMap = omogari;
+        else if(restaurantName.equals("Sushi Koya"))
+            this.reservationMap = sushikoya;
 
         frame = new JFrame("Reservation List");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -193,16 +204,6 @@ public class ReservationList extends JFrame {
         }
 
         return -1; //row not found 
-    }
-
-    public List<Reservation> getReservations(String restName) {
-        List<Reservation> restaurantReservations = new ArrayList<>();
-        for(Reservation r: reservationMap.values()) {
-            if(restName.equals(r.getRestaurantName())) {
-                restaurantReservations.add(r); 
-            }
-        }
-        return restaurantReservations; 
     }
 
 }
