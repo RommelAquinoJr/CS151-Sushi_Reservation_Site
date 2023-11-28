@@ -38,7 +38,8 @@ public class AdminLoginPage extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if("admin".equals(usernameField.getText()) && "password123".equals(new String(passwordField.getPassword()))) {
-            loginStatusLabel.setText("Login successful!");
+            this.setVisible(false);
+            new AdminPage();
         } else {
             loginStatusLabel.setText("Invalid credentials!");
         }
