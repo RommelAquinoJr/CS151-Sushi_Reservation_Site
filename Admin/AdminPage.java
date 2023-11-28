@@ -14,7 +14,6 @@ import java.util.Vector;
 import java.util.List;
 
 public class AdminPage extends JFrame implements ActionListener {
-    private JLabel welcomeLabel;
    
     private JButton acceptButton;
     private JButton denyButton;
@@ -32,11 +31,6 @@ public class AdminPage extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-       
-        welcomeLabel = new JLabel("Admin Dashboard");
-        add(welcomeLabel, BorderLayout.NORTH);
-
-       
         createReservationTable();
         populateReservations();
 
@@ -69,6 +63,7 @@ public class AdminPage extends JFrame implements ActionListener {
         tableModel.addColumn("Phone Number");
         tableModel.addColumn("Reserved Time");
         tableModel.addColumn("Restaurant");
+        tableModel.addColumn("ID");
 
         
         table = new JTable(tableModel);
@@ -89,6 +84,7 @@ public class AdminPage extends JFrame implements ActionListener {
             rowData.add(res.getPhone());
             rowData.add(res.getTime());
             rowData.add(res.getRestaurantName());
+            rowData.add(res.getID());
             tableModel.addRow(rowData);
         }
     }
@@ -111,6 +107,20 @@ public class AdminPage extends JFrame implements ActionListener {
             
         }
     }
+    private void deleteReservation() {
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow >= 0) {
+            String reservationID = tableModel.getValueAt(selectedRow,4).toString(); 
+            ReservationManager.deleteReservation(reservationID); 
+            tableModel.removeRow(selectedRow);
+            JOptionPane.showMessageDialog(this, 
+            "Reservation Declined. A text confirmation has been sent.", 
+            "Declined", 
+            JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select a reservation.");
+        }
+    }
 
     private void acceptReservation() {
         int selectedRow = table.getSelectedRow();
@@ -127,11 +137,7 @@ public class AdminPage extends JFrame implements ActionListener {
     private void denyReservation() {
         int selectedRow = table.getSelectedRow();
         if (selectedRow >= 0) {
-            tableModel.removeRow(selectedRow);
-            JOptionPane.showMessageDialog(this, 
-            "Reservation Declined. A text confirmation has been sent.", 
-            "Declined", 
-            JOptionPane.INFORMATION_MESSAGE);
+            deleteReservation();
         } else {
             JOptionPane.showMessageDialog(this, "Please select a reservation to deny.");
         }

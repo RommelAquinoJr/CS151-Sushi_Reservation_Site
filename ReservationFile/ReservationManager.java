@@ -31,4 +31,14 @@ public class ReservationManager {
         if (sushikoyaList != null) allReservations.addAll(sushikoyaList.getReservations());
         return allReservations;
     }
+
+    public static void deleteReservation(String reservationID) {
+        if (minatoList != null) minatoList.deleteReservation(reservationID);
+        if (kaitaList != null) kaitaList.deleteReservation(reservationID);
+        if (kaizokuList != null) kaizokuList.deleteReservation(reservationID);
+        if (omogariList != null) omogariList.deleteReservation(reservationID);
+        if (sushikoyaList != null) sushikoyaList.deleteReservation(reservationID);
+    }
 }
+
+

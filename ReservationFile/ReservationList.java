@@ -128,6 +128,10 @@ public class ReservationList extends JFrame {
         frame.setVisible(true);
     }
 
+    public void deleteReservation(String reservationID) {
+        reservationMap.remove(reservationID);
+    }
+
   
 
     public void addRes() {
