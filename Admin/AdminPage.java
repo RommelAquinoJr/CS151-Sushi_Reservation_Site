@@ -32,15 +32,15 @@ public class AdminPage extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Welcome Label
-        welcomeLabel = new JLabel("Welcome to the Admin Dashboard");
+       
+        welcomeLabel = new JLabel("Admin Dashboard");
         add(welcomeLabel, BorderLayout.NORTH);
 
-        // Table for Reservations
+       
         createReservationTable();
         populateReservations();
 
-        // Buttons
+        
         acceptButton = new JButton("Accept Reservation");
         denyButton = new JButton("Deny Reservation");
         logoutButton = new JButton("Logout");
@@ -61,7 +61,7 @@ public class AdminPage extends JFrame implements ActionListener {
     }
 
     private void createReservationTable() {
-        // Create a table model
+        
         tableModel = new DefaultTableModel();
         
 
@@ -127,7 +127,6 @@ public class AdminPage extends JFrame implements ActionListener {
     private void denyReservation() {
         int selectedRow = table.getSelectedRow();
         if (selectedRow >= 0) {
-            // Similar logic as acceptReservation
             tableModel.removeRow(selectedRow);
             JOptionPane.showMessageDialog(this, 
             "Reservation Declined. A text confirmation has been sent.", 

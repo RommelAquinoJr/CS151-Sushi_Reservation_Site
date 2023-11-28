@@ -5,14 +5,13 @@ import java.util.List;
 
 public class ReservationManager {
 
-    // Static references to ReservationList from each restaurant
     private static ReservationList minatoList;
     private static ReservationList kaitaList;
     private static ReservationList kaizokuList;
     private static ReservationList omogariList;
     private static ReservationList sushikoyaList;
 
-    // Method to set ReservationList from restaurants
+    
     public static void setReservationList(String restaurantName, ReservationList list) {
         switch(restaurantName) {
             case "Minato": minatoList = list; break;
