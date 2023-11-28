@@ -30,16 +30,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
         idField = new JTextField(); 
         idField.setEditable(true); 
         this.add(idField); 
-
         
-        
-
-        // this.add(new JLabel("Reservation time:"));
-        // timeField = new JTextField(); 
-        // timeField.setEditable(true);
-        // this.add(timeField); 
-        
-
         confirmButton = new JButton("Confirm cancellation");
         confirmButton.addActionListener(this); 
         this.add(confirmButton);   //says yes, confirming cancellation
@@ -68,7 +59,10 @@ public class CancelReservationPage extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Please fill in all of the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
             
-        } else if(e.getSource() == returnButton) { //takes you back to home page  
+        } else if(e.getSource() == returnButton) { //takes you back to home page
+            if (reservationList != null)
+                reservationList.setVisible(false);
+            this.setVisible(false);
             new LandingPage(); 
         }
     } 

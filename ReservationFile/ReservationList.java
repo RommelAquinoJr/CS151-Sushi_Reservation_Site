@@ -181,12 +181,16 @@ public class ReservationList extends JFrame {
     }
 
     protected void cancelRes(String id) {
+        //Check if id exists
+        if(!reservationMap.containsKey(id))
+            JOptionPane.showMessageDialog(this, "ID not found", "Error!", JOptionPane.ERROR_MESSAGE);
         DefaultTableModel model = (DefaultTableModel) table.getModel(); 
         String customerName = reservationMap.get(id).getName();
         String phoneNum = reservationMap.get(id).getPhone();
         String time = reservationMap.get(id).getTime();
         int rowIndexToRemove = findRowIndex(model, customerName, phoneNum, time); 
         if(rowIndexToRemove != -1) {
+            reservationMap.remove(id);
             model.removeRow(rowIndexToRemove);
         } else {
             JOptionPane.showMessageDialog(this, "Reservation not found for cancellation", "Error!", JOptionPane.ERROR_MESSAGE);
