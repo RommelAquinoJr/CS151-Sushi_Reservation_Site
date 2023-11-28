@@ -8,30 +8,31 @@ import java.awt.event.*;
 
 public class CancelReservationPage extends JFrame implements ActionListener {
 
-    // private JTextField idField; 
     private JTextField idField; 
-    //private JTextField timeField; 
+    private JTextField resName;
     private JButton confirmButton;  
     private JButton returnButton; 
     private ReservationList reservationList; 
    
 
-    public CancelReservationPage(ReservationList reservationList) {
-        this.reservationList = reservationList;  
+    public CancelReservationPage() {
         this.setTitle("Cancel Reservation"); 
         this.setSize(300,200); 
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
         this.setLayout(new GridLayout(4, 2)); 
 
-        // add(new JLabel("Name:"));
-        // idField = new JTextField();
-        // idField.setEditable(true);
-        // this.add(idField); 
+        this.add(new JLabel("Restaurant Name:"));
+        resName = new JTextField();
+        resName.setEditable(true);
+        this.add(resName); 
 
-        this.add(new JLabel("Please entor your ID:"));
+        this.add(new JLabel("Please enter your ID:"));
         idField = new JTextField(); 
         idField.setEditable(true); 
         this.add(idField); 
+
+        
+        
 
         // this.add(new JLabel("Reservation time:"));
         // timeField = new JTextField(); 
@@ -53,19 +54,21 @@ public class CancelReservationPage extends JFrame implements ActionListener {
    
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Create a reservation List based on the restaurant Name
+        if (!resName.getText().isEmpty()) {
+            this.reservationList = new ReservationList(resName.getText());
+        }
         if(e.getSource() == confirmButton) { //cancels reservation  
             String id = idField.getText(); 
 
             if(!id.isEmpty()) {
                 reservationList.cancelRes(id); 
                 JOptionPane.showMessageDialog(this, "Reservation canceled successfully!");
-                this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Please fill in all of the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
             
         } else if(e.getSource() == returnButton) { //takes you back to home page  
-            this.setVisible(false);
             new LandingPage(); 
         }
     } 

@@ -32,15 +32,13 @@ public class ReservationList extends JFrame {
     private JTable table;
     private JTextField customerField;
     private JTextField phoneNumField;
-    private JTextField timeField;
+    private JTextField timeField, idField;
     private Map<String, Reservation> reservationMap; //maye hashmap
     private static Map<String, Reservation> minato = new HashMap<>();
     private static Map<String, Reservation> kaita = new HashMap<>();
     private static Map<String, Reservation> kaizoku = new HashMap<>();
     private static Map<String, Reservation> omogari = new HashMap<>();
     private static Map<String, Reservation> sushikoya = new HashMap<>();
-
-
 
     public ReservationList(String restaurantName) {
         if(restaurantName.equals("Minato"))
@@ -77,8 +75,10 @@ public class ReservationList extends JFrame {
         //Create pannel with Flow layout
         JPanel panel = new JPanel(new FlowLayout());
         customerField = new JTextField(15);
-        phoneNumField = new JTextField(10);
-        timeField = new JTextField(10);
+        phoneNumField = new JTextField(8);
+        timeField = new JTextField(5);
+        idField = new JTextField(8);
+        idField.setEditable(false);
         JButton confirmButton = new JButton("Confirm");
         //action listoner of confirm Button
         confirmButton.addActionListener(new ActionListener() {
@@ -95,6 +95,8 @@ public class ReservationList extends JFrame {
         panel.add(phoneNumField);
         panel.add(new JLabel("Time:"));
         panel.add(timeField);
+        panel.add(new JLabel("ID to copy:"));
+        panel.add(idField);
         panel.add(confirmButton);
 
 
@@ -117,9 +119,8 @@ public class ReservationList extends JFrame {
             rowData.add(time);
             tableModel.addRow(rowData);
             Reservation res = new Reservation(customerName, phoneNum, time); //Create a reservation
-            res.setRestaurantName(restaurantName);
-
             reservationMap.put(res.getID(),res);
+            idField.setText(res.getID());
             customerField.setText("");
             phoneNumField.setText("");
             timeField.setText("");
