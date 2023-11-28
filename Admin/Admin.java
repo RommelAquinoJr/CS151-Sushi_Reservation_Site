@@ -28,8 +28,5 @@ public class Admin {
             System.out.println("You're not logged in!");
         }
     }
-    public void confirmReservation() {}
-    public void denyReservation() {}
-    public void editReservation() {}
-    //test
+ 
 }
