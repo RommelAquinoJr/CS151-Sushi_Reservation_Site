@@ -1,6 +1,7 @@
 package Admin;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 import ReservationFile.ReservationList;
 
@@ -15,12 +16,14 @@ public class AdminPage extends JFrame implements ActionListener {
     private JButton acceptButton;
     private JButton denyButton;
     private JButton logoutButton;
+    private JTable table; 
+    private DefaultTableModel tableModel; 
+
     
 
     public AdminPage() {
 
-        
-
+   
         setTitle("Admin Dashboard");
         setSize(600, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,21 +34,19 @@ public class AdminPage extends JFrame implements ActionListener {
         add(welcomeLabel, BorderLayout.NORTH);
 
         // Table for Reservations
-    
+        createReservationTable();
 
         // Buttons
-        viewDetailsButton = new JButton("View Details");
         acceptButton = new JButton("Accept Reservation");
         denyButton = new JButton("Deny Reservation");
         logoutButton = new JButton("Logout");
 
-        viewDetailsButton.addActionListener(this);
+        
         acceptButton.addActionListener(this);
         denyButton.addActionListener(this);
         logoutButton.addActionListener(this);
 
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        buttonPanel.add(viewDetailsButton);
         buttonPanel.add(acceptButton);
         buttonPanel.add(denyButton);
         buttonPanel.add(logoutButton);
@@ -55,6 +56,26 @@ public class AdminPage extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    private void createReservationTable() {
+        // Create a table model
+        tableModel = new DefaultTableModel();
+        tableModel.addColumn("Customer Name");
+        tableModel.addColumn("Phone Number");
+        tableModel.addColumn("Reserved Time");
+
+        
+        table = new JTable(tableModel);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        
+     
+        add(scrollPane, BorderLayout.CENTER);
+
+        
+    }
+
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -63,8 +84,6 @@ public class AdminPage extends JFrame implements ActionListener {
         if (e.getSource() == logoutButton) {
             dispose();
             new Main.LandingPage();
-        } else if (e.getSource() == viewDetailsButton) {
-            new ReservationList(getName());
         } else if (e.getSource() == acceptButton) {
             updateReservationStatus("Accepted");
         } else if (e.getSource() == denyButton) {
