@@ -69,6 +69,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
             }
             
         } else if(e.getSource() == returnButton) { //takes you back to home page  
+            this.setVisible(false);
             new LandingPage(); 
         }
     } 
