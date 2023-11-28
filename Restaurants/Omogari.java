@@ -1,6 +1,7 @@
 package Restaurants;
 
 import ReservationFile.ReservationList;
+import ReservationFile.ReservationManager;
 
 import java.awt.event.ActionEvent;
 
@@ -32,7 +33,8 @@ public class Omogari extends Restaurant{
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
-            new ReservationList("Omogari"); 
+            ReservationList omogariList = new ReservationList("Omogari");
+            ReservationManager.setReservationList("Omogari", omogariList);
         }
     }
 }

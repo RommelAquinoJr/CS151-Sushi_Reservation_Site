@@ -18,10 +18,11 @@ public class Reservation {
      * @param pn customer phone number
      * @param time time of the reservation
      */
-    public Reservation(String name, String pn, String time) {
+    public Reservation(String name, String pn, String time, String restaurantName) {
         this.customerName = name;
         this.phoneNum = pn;
         this.time = time;
+        this.restaurantName = restaurantName; 
         // Generate random string for reservationID
         String id = this.generateID();
         this.reservationID = id;

@@ -1,6 +1,8 @@
 package ReservationFile;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 import javax.swing.JButton;
@@ -40,7 +42,26 @@ public class ReservationList extends JFrame {
     private static Map<String, Reservation> omogari = new HashMap<>();
     private static Map<String, Reservation> sushikoya = new HashMap<>();
 
+   
+
+    public List<Reservation> getReservations() {
+        Map<String, Reservation> currentMap = getMapForRestaurant(restaurantName);
+        return new ArrayList<>(currentMap.values());
+    }
+    private Map<String, Reservation> getMapForRestaurant(String restaurantName) {
+        switch(restaurantName) {
+            case "Minato": return minato;
+            case "Kaita": return kaita;
+            case "Kaizoku": return kaizoku;
+            case "Omogari": return omogari;
+            case "Sushi Koya": return sushikoya;
+            default: return new HashMap<>();
+        }
+    }
     public ReservationList(String restaurantName) {
+
+        this.restaurantName = restaurantName;
+
         if(restaurantName.equals("Minato"))
             this.reservationMap = minato;
         else if(restaurantName.equals("Kaita"))
@@ -107,6 +128,8 @@ public class ReservationList extends JFrame {
         frame.setVisible(true);
     }
 
+  
+
     public void addRes() {
         customerName = customerField.getText();
         phoneNum = phoneNumField.getText();
@@ -118,7 +141,7 @@ public class ReservationList extends JFrame {
             rowData.add(phoneNum);
             rowData.add(time);
             tableModel.addRow(rowData);
-            Reservation res = new Reservation(customerName, phoneNum, time); //Create a reservation
+            Reservation res = new Reservation(customerName, phoneNum, time, restaurantName); //Create a reservation
             reservationMap.put(res.getID(),res);
             idField.setText(res.getID());
             customerField.setText("");

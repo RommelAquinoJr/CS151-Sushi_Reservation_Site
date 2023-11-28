@@ -1,6 +1,7 @@
 package Restaurants;
 
 import ReservationFile.ReservationList;
+import ReservationFile.ReservationManager;
 
 import java.awt.event.ActionEvent;
 
@@ -34,7 +35,8 @@ public class Kaizoku extends Restaurant{
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
-            new ReservationList("Kaizoku");
+            ReservationList kaizokuList = new ReservationList("Kaizoku");
+            ReservationManager.setReservationList("Kaizoku", kaizokuList);
         }
     }
 }

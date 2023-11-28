@@ -1,6 +1,7 @@
 package Restaurants;
 
 import ReservationFile.ReservationList;
+import ReservationFile.ReservationManager;
 
 import java.awt.event.ActionEvent;
 
@@ -34,7 +35,8 @@ public class SushiKoya extends Restaurant{
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
-            new ReservationList("Sushi Koya");
+            ReservationList sushikoyaList = new ReservationList("Sushi Koya");
+            ReservationManager.setReservationList("Sushi Koya", sushikoyaList);
         }
     }
 }

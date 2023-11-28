@@ -1,6 +1,7 @@
 package Restaurants;
 
 import ReservationFile.ReservationList;
+import ReservationFile.ReservationManager;
 
 import java.awt.event.ActionEvent;
 
@@ -35,7 +36,8 @@ public class Minato extends Restaurant{
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
-            new ReservationList("Minato");
+            ReservationList minatoList = new ReservationList("Minato");
+            ReservationManager.setReservationList("Minato", minatoList);
         }
     }
 }

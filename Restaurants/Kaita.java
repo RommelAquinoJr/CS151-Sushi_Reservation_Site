@@ -1,6 +1,7 @@
 package Restaurants;
 
 import ReservationFile.ReservationList;
+import ReservationFile.ReservationManager;
 
 import java.awt.event.ActionEvent;
 
@@ -33,7 +34,8 @@ public class Kaita extends Restaurant{
             new RestaurantGUI();
         }
         else if("Make Reservation".equals(command)) {
-            new ReservationList("Kaita");
+            ReservationList kaitaList = new ReservationList("Kaita");
+            ReservationManager.setReservationList("Kaita", kaitaList);
         }
     }
 }
