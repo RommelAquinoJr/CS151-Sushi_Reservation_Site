@@ -8,6 +8,7 @@ public class AdminLoginPage extends JFrame implements ActionListener {
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JButton loginButton;
+    private JButton returnButton;
     private JLabel loginStatusLabel;
 
     public AdminLoginPage() {
@@ -15,6 +16,7 @@ public class AdminLoginPage extends JFrame implements ActionListener {
         setSize(300, 200);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new GridLayout(4, 2));
+
 
         add(new JLabel("Username:"));
         usernameField = new JTextField();
@@ -28,6 +30,10 @@ public class AdminLoginPage extends JFrame implements ActionListener {
         loginButton.addActionListener(this);
         add(loginButton);
 
+        returnButton = new JButton("Return");
+        returnButton.addActionListener(this);
+        add(returnButton);
+
         loginStatusLabel = new JLabel("");
         add(loginStatusLabel);
 
@@ -36,6 +42,11 @@ public class AdminLoginPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == returnButton) {
+            dispose();
+            new Main.LandingPage();
+        }
         
         if("admin".equals(usernameField.getText()) && "password123".equals(new String(passwordField.getPassword()))) {
             this.setVisible(false);
