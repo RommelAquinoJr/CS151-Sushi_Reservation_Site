@@ -59,9 +59,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "Please fill in all of the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
             }
             
-        } else if(e.getSource() == returnButton) { //takes you back to home page
-            if (reservationList != null)
-                reservationList.setVisible(false);
+        } else if(e.getSource() == returnButton) { //takes you back to home page  
             this.setVisible(false);
             new LandingPage(); 
         }

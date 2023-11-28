@@ -2,6 +2,8 @@ package Admin;
 
 import javax.swing.*;
 
+import ReservationFile.ReservationList;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,8 +15,12 @@ public class AdminPage extends JFrame implements ActionListener {
     private JButton acceptButton;
     private JButton denyButton;
     private JButton logoutButton;
+    
 
     public AdminPage() {
+
+        
+
         setTitle("Admin Dashboard");
         setSize(600, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,11 +57,14 @@ public class AdminPage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+     
+
         if (e.getSource() == logoutButton) {
             dispose();
             new Main.LandingPage();
         } else if (e.getSource() == viewDetailsButton) {
-            // viewSelectedReservation();
+            new ReservationList(getName());
         } else if (e.getSource() == acceptButton) {
             updateReservationStatus("Accepted");
         } else if (e.getSource() == denyButton) {

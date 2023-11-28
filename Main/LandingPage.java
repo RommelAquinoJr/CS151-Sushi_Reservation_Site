@@ -2,7 +2,9 @@ package Main;
 import javax.swing.*;
 
 import Admin.AdminLoginPage;
+import Admin.AdminPage;
 import ReservationFile.CancelReservationPage;
+import ReservationFile.ReservationList;
 import Restaurants.RestaurantGUI;
 
 import java.awt.*; 
@@ -74,6 +76,7 @@ public class LandingPage extends JFrame implements ActionListener{
 
 
         } else if ("Cancel Reservation".equals(command)) {
+            this.setVisible(false);
             CancelReservationPage cancel = new CancelReservationPage(); 
             cancel.setVisible(true);
         } 
