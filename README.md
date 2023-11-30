@@ -27,7 +27,7 @@ Users will be able to book reservations through a window, view the menu, and can
 * Swing
 
 ### High Level Description
-Our plan is to create a reservation site that gives users the ability to create reservations at any local sushi restaurant without calling it in as well as managing the reservation for users who have a restaurant of their own. Specifically, users can use this site to choose the restaurant they would like to dine at and fill in all the needed information such as the time and size of their party. As for the owner, they can keep track of their customer’s name, phone number and the reserved table automatically just by opening up the site. Lastly, If the customers decide to cancel their reservation, they can simply do so through the site instead of calling the restaurant.
+A Java Swing application that allows users to book reservations with a choice of 5 restaurants. Creating a reservation creates an instance of ReservationList, which is unique to each restaurant. Users put in their info and are provided a unique ReservationID in which they can cancel their reservation. Users cannot book at the same time but can make multiple Reservations. Admins have a separate login page before being able to confirm or deny reservations. Denying reservations deletes the instance by referencing the unique ReservationID created earlier.  
 
 ### Steps to Run Application
 1. Download all five folders into one folder
