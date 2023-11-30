@@ -11,7 +11,12 @@ public class ReservationManager {
     private static ReservationList omogariList;
     private static ReservationList sushikoyaList;
 
-    
+
+    /**
+     * Sets a restaurant to a list 
+     * @param restaurantName name of restaurant
+     * @param list list specifically for the restaurant
+     */
     public static void setReservationList(String restaurantName, ReservationList list) {
         switch(restaurantName) {
             case "Minato": minatoList = list; break;
@@ -22,6 +27,10 @@ public class ReservationManager {
         }
     }
 
+    /**
+     * Gets all of the reservations from the reservation lists throughout the application
+     * @return all of the reservations across all of the restaurants  
+     */
     public static List<Reservation> getAllReservations() {
         List<Reservation> allReservations = new ArrayList<>();
         if (minatoList != null) allReservations.addAll(minatoList.getReservations());
@@ -32,6 +41,10 @@ public class ReservationManager {
         return allReservations;
     }
 
+    /**
+     * Deletes a reservation from a list if the reservationID matches up
+     * @param reservationID
+     */
     public static void deleteReservation(String reservationID) {
         if (minatoList != null) minatoList.deleteReservation(reservationID);
         if (kaitaList != null) kaitaList.deleteReservation(reservationID);

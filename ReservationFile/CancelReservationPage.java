@@ -14,7 +14,7 @@ public class CancelReservationPage extends JFrame implements ActionListener {
     private JButton returnButton; 
     private ReservationList reservationList; 
    
-
+    //CancelReservationPage constructor
     public CancelReservationPage() {
         this.setTitle("Cancel Reservation"); 
         this.setSize(300,200); 
@@ -54,9 +54,9 @@ public class CancelReservationPage extends JFrame implements ActionListener {
 
             if(!id.isEmpty()) {
                 reservationList.cancelRes(id); 
-                JOptionPane.showMessageDialog(this, "Reservation canceled successfully!");
+                JOptionPane.showMessageDialog(this, "Reservation canceled successfully!"); //shows if the reservation was created
             } else {
-                JOptionPane.showMessageDialog(this, "Please fill in all of the fields.", "Error!", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please fill in all of the fields.", "Error!", JOptionPane.ERROR_MESSAGE); //tells the user if they need to add more info
             }
             
         } else if(e.getSource() == returnButton) { //takes you back to home page  

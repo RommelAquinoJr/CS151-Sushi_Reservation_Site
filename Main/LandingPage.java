@@ -61,19 +61,20 @@ public class LandingPage extends JFrame implements ActionListener{
     
 
 
+    
     @Override 
     public void actionPerformed(ActionEvent e) { 
         String command = e.getActionCommand();
-        if ("Admin Login".equals(command)) {
+        if ("Admin Login".equals(command)) { //If the user clicks admin login a new AdminLoginPage is created
             this.setVisible(false);
             new AdminLoginPage(); 
 
-        } else if ("Book Restaurant".equals(command)) {
+        } else if ("Book Restaurant".equals(command)) { //if the user clicks book restaurant a new RestaurantGUI page is made
             this.setVisible(false);
             new RestaurantGUI(); 
 
 
-        } else if ("Cancel Reservation".equals(command)) {
+        } else if ("Cancel Reservation".equals(command)) { //when cancel reservation is clicked a new CancelReservationPage
             this.setVisible(false);
             CancelReservationPage cancel = new CancelReservationPage(); 
             cancel.setVisible(true);

@@ -28,24 +28,52 @@ public class Reservation {
         this.reservationID = id;
     }
 
-    //Getters
+    //Getters 
+
+    /**
+     * Gets reservationID from the reservation 
+     * @return returns the reservationID 
+     */
     public String getID(){
         return reservationID;
     }
+
+    /**
+     * Gets the name of the customer based on the reservation
+     * @return the customerName
+     */
     public String getName(){
         return customerName;
     }
+
+    /**
+     * Gets the time from the reservation 
+     * @return the time the user provided from the reservation 
+     */
     public String getTime(){
         return time;
     }
+
+    /**
+     * Gets the phone number 
+     * @return
+     */
     public String getPhone(){
         return phoneNum;
     }
     
+    /**
+     * Gets the restaurantName 
+     * @return the name of the restaurant based on the reservation 
+     */
     public String getRestaurantName(){
         return restaurantName; 
     }
 
+    /**
+     * Sets the restaurantName 
+     * @param restaurantName
+     */
     public void setRestaurantName(String restaurantName) {
         this.restaurantName = restaurantName; 
     }

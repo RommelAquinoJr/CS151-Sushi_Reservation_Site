@@ -171,6 +171,13 @@ public class Restaurant implements ActionListener{
         frame.setVisible(true);
     }
 
+    /**
+     * Adds a menu item to the menu array, also handles formatting/font and size 
+     * @param panel 
+     * @param menu an array based on the restaurant's menu
+     * @param startIndex 
+     * @param endIndex
+     */
     public static void addMenuItem(JPanel panel, String[] menu, int startIndex, int endIndex) {
         int ycoord = 0;
 
@@ -188,12 +195,12 @@ public class Restaurant implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-        if ("Return".equals(command)) {
-            frame.setVisible(false);
+        if ("Return".equals(command)) { //returns user to restuarant selection page
+            frame.setVisible(false); 
             new RestaurantGUI();
         }
-        else if("Make Reservation".equals(command)) {
-            new ReservationList("Minato");
+        else if("Make Reservation".equals(command)) { 
+            new ReservationList("Minato"); //makes a new reservation lists
         }
     }
 }

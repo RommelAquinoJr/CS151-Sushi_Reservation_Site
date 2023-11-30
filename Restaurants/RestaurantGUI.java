@@ -92,11 +92,11 @@ public class RestaurantGUI extends JFrame implements ActionListener{
     @Override 
     public void actionPerformed(ActionEvent e) { 
         String command = e.getActionCommand();
-        if ("Return".equals(command)) {
+        if ("Return".equals(command)) { //returns user to landing page
             this.setVisible(false);
-            new LandingPage();
+            new LandingPage(); 
         }
-        else if("Minato Japanese Sushi".equals(command)) {
+        else if("Minato Japanese Sushi".equals(command)) { //creates a new restaurant page option 
             this.setVisible(false);
             new Minato();
         }

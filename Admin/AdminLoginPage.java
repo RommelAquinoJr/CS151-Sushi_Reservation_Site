@@ -39,16 +39,16 @@ public class AdminLoginPage extends JFrame implements ActionListener {
 
         setVisible(true);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == returnButton) {
+        if (e.getSource() == returnButton) { //when the return button is clicked a new landing page is created 
             dispose();
             new Main.LandingPage();
         }
         
-        if("admin".equals(usernameField.getText()) && "password123".equals(new String(passwordField.getPassword()))) {
+        if("admin".equals(usernameField.getText()) && "password123".equals(new String(passwordField.getPassword()))) { //if the user inputs these credentials they can access the admin login page
             this.setVisible(false);
             new AdminPage();
         } else {

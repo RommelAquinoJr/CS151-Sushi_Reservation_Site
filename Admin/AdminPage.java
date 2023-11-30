@@ -22,8 +22,8 @@ public class AdminPage extends JFrame implements ActionListener {
     private DefaultTableModel tableModel; 
 
     
-
-    public AdminPage() {
+    //constructor for Admin Dashboard
+    public AdminPage() { 
 
    
         setTitle("Admin Dashboard");
@@ -54,6 +54,7 @@ public class AdminPage extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    //Creates a table for all of the reservations across all restaurants for the admin to see 
     private void createReservationTable() {
         
         tableModel = new DefaultTableModel();
@@ -76,6 +77,7 @@ public class AdminPage extends JFrame implements ActionListener {
 
     }
 
+    //Adds all the reservation from reservation manager into the table 
     private void populateReservations() {
         List<Reservation> allReservations = ReservationManager.getAllReservations();
         for (Reservation res : allReservations) {
@@ -94,20 +96,20 @@ public class AdminPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-     
-
-        if (e.getSource() == logoutButton) {
+        if (e.getSource() == logoutButton) { //if the logout button is pressed it closes the admin dashboard 
             dispose();
-            new Main.LandingPage();
-        } else if (e.getSource() == acceptButton) {
-            acceptReservation();
+            new Main.LandingPage(); //creates a new landing page object 
+        } else if (e.getSource() == acceptButton) { //if the user clicks the accept button the reservation they selected is accepted
+            acceptReservation(); 
            
-        } else if (e.getSource() == denyButton) {
+        } else if (e.getSource() == denyButton) { //if the user clicks the deny button the reservation they selected is denied and deleted
             denyReservation();
             
         }
     }
-    private void deleteReservation() {
+
+    //deletes the selected reservation if the deny reservation button is cliked
+    private void deleteReservation() { 
         int selectedRow = table.getSelectedRow();
         if (selectedRow >= 0) {
             String reservationID = tableModel.getValueAt(selectedRow,4).toString(); 
@@ -122,6 +124,7 @@ public class AdminPage extends JFrame implements ActionListener {
         }
     }
 
+    //accepts the selected reservation
     private void acceptReservation() {
         int selectedRow = table.getSelectedRow();
         if (selectedRow >= 0) {
@@ -134,6 +137,7 @@ public class AdminPage extends JFrame implements ActionListener {
         }
     }
     
+    //denies a selected reservation
     private void denyReservation() {
         int selectedRow = table.getSelectedRow();
         if (selectedRow >= 0) {
@@ -142,10 +146,6 @@ public class AdminPage extends JFrame implements ActionListener {
             JOptionPane.showMessageDialog(this, "Please select a reservation to deny.");
         }
     }
-
-  
-
-   
 
   
 }

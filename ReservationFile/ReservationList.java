@@ -43,11 +43,20 @@ public class ReservationList extends JFrame {
     private static Map<String, Reservation> sushikoya = new HashMap<>();
 
    
-
+    /**
+     * Accesses the hashmap for the different restaurant reservation lists
+     * @return an ArrayList based on the current restaurant's map
+     */
     public List<Reservation> getReservations() {
         Map<String, Reservation> currentMap = getMapForRestaurant(restaurantName);
         return new ArrayList<>(currentMap.values());
     }
+
+    /**
+     * Gets the hashmap based on the restaurant
+     * @param restaurantName name of restaurant
+     * @return
+     */
     private Map<String, Reservation> getMapForRestaurant(String restaurantName) {
         switch(restaurantName) {
             case "Minato": return minato;
@@ -58,6 +67,12 @@ public class ReservationList extends JFrame {
             default: return new HashMap<>();
         }
     }
+
+    /**
+     *  Reservation List constructor
+     *  There are individual reservation lists for each restaurant
+     * @param restaurantName
+     */
     public ReservationList(String restaurantName) {
 
         this.restaurantName = restaurantName;
@@ -128,12 +143,16 @@ public class ReservationList extends JFrame {
         frame.setVisible(true);
     }
 
+    /**
+     * Deletes the reservation from the map based on the restaurant
+     * @param reservationID
+     */
     public void deleteReservation(String reservationID) {
         reservationMap.remove(reservationID);
     }
 
   
-
+    //adds a reservation to the reservation list
     public void addRes() {
         customerName = customerField.getText();
         phoneNum = phoneNumField.getText();
@@ -198,7 +217,8 @@ public class ReservationList extends JFrame {
             return false;
         }
     }
-        /**
+
+    /**
      * Validate customer's name.
      * @param name Customer's name
      * @return True if the name is valid, false otherwise
@@ -207,6 +227,10 @@ public class ReservationList extends JFrame {
         return !name.isEmpty() && name.matches("^[a-zA-Z\\s-]+$");
     }
 
+    /**
+     * Cancels a reservation
+     * @param id
+     */
     protected void cancelRes(String id) {
         //Check if id exists
         if(!reservationMap.containsKey(id))
@@ -220,10 +244,18 @@ public class ReservationList extends JFrame {
             reservationMap.remove(id);
             model.removeRow(rowIndexToRemove);
         } else {
-            JOptionPane.showMessageDialog(this, "Reservation not found for cancellation", "Error!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Reservation not found for cancellation", "Error!", JOptionPane.ERROR_MESSAGE); //tells user if a reservation isn't found
         }
     }
 
+    /**
+     * Finds the row from the reservation list table to 
+     * @param model takes in the reservation list model
+     * @param customerName a String for the customer name attached to the reservation 
+     * @param phoneNum a String of the customer's phone number 
+     * @param time a String for the time the customer chose 
+     * @return the index based on where the customer's reservation is in the table. If the reservation row isn't found it returns -1 
+     */
     private int findRowIndex(DefaultTableModel model, String customerName, String phoneNum, String time) {
         for(int i = 0; i < model.getRowCount(); i++) {
             String custName = model.getValueAt(i,0).toString(); 
