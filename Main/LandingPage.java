@@ -2,9 +2,7 @@ package Main;
 import javax.swing.*;
 
 import Admin.AdminLoginPage;
-import Admin.AdminPage;
 import ReservationFile.CancelReservationPage;
-import ReservationFile.ReservationList;
 import Restaurants.RestaurantGUI;
 
 import java.awt.*; 

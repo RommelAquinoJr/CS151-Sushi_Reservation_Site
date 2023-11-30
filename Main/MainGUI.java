@@ -1,11 +1,8 @@
 package Main;
-import java.awt.BorderLayout;
-import java.awt.CardLayout;
 
 import javax.swing.*;
 
 public class MainGUI extends JPanel{
-   private JFrame frame; 
    
    public MainGUI() {
       new LandingPage(); 
