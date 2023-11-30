@@ -78,4 +78,4 @@ Cancel Reservation
 ![UML diagram](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/UML%20Class%20Diagram%20CS%20151.drawio.png)
 
 ### Slide Presentation
-![presentation](https://docs.google.com/presentation/d/1HmBB-hWM-fOTwLo8Icp-iOUqQPCk6lmGluz1j3k0Ico/edit?usp=sharing)
+[presentation](https://docs.google.com/presentation/d/1HmBB-hWM-fOTwLo8Icp-iOUqQPCk6lmGluz1j3k0Ico/edit?usp=sharing)
