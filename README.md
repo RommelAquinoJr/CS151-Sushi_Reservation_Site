@@ -43,32 +43,37 @@ java Main/MainGUI.java
 
 ### Snapshot of Program Running
 Landing Page of application
-![LandingPage](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnBFE53O6Wi5tWotSnlERZFbl_jANd-gIeOSm6pqCmPPWeKDKi7ecsFTo4_SKO-35OZcTcjmGcA7w0i-ZgQtw-ajDIspX1_6P9uzJJZFUMWoxvUH=s512)
+
+![LandingPage](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/1landingpage.png)
 
 Restaurant Selection Page
-![Restaurant Selection Page](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnCXgDl9I5rf-vVFux5PmUXiRpigleeZsXPy9NE2___p0oRLq74_69QdfA5BZ5fN9wzbgsXNtnBBMrFPwAAyH20z6qXeDAeFCh_4yMGCpxzZtkJo=s512)
+
+![Restaurant Selection Page](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/2restaurantgui.png)
 
 Restaurant Minato
-![Minato](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnC4PHZZaqEkT10838QO3z5GfqJtpFmFYmiYj9qVb5OWXxxQHyDZzuM4tZ_T7k37sJn93_t36yZ5YrjhbN1eS5rn0Ebk7bee37OLDQ_a9h3IpEnl=s512)
+
+![Minato](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/3minato.png)
 
 Making a Reservation
-![Reservation](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnBaT07-3zNUBOUsVZrw-doHDXzfnf3JTnUxU1mDLWpP-Yksgkv36Ograh1RuOKF-OKx-YNq5o-M4ww8yZxP1e5LX2pOd9PdB8NfDjDIzZ7k56hh=s512)
+
+![Reservation](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/4reservation.png)
 
 Admin Login
 
-![Admin](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnAoPD7L-82Qu2d0xfwM7wFBR3lP7G8HWcQwUjYrdHvVxGAzhHVPJLVAcc73jRIaCM92XROlPBc_sdakGU34jwj-I3L2FvQNPqnMOqUGcmjRmRGY=s512)
+![Admin](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/5admin.png)
 
 Admin Page
 
-![AdminPage](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnARN7G3ySc78EbO4GeE54Li4Sglhg4DpNcAH37-GilqNUjOhG-zQOy8U_SW3uz15etjYP78MvC322qIEyB4zhj_fILt4082rGHXbSo6nF1WOSQP=s512)
+![AdminPage](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/6adminlogin.png)
 
 Cancel Reservation
-![Cancel](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnBbAv75O35Rdbsp-UWqzJxtwUZZa2Q_Q3OqKrXQAmx2opZLNsg_o9dYVzwRaCMAQp_S6uhDTaXw6mmTcAv8dh-8L2iQ6asd2mUM_hV-pusUQoeM=s512)
+
+![Cancel](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/7cancel.png)
 
 ### Solution to our Problem
 - Users can now book reservations on their own, and when managers/admins have time, will be able to confirm/deny reservations
 - ReservationList handles duplicate reservations and has verifying logic to make sure correct information is inputted.
 
 ### UML Diagram
-![UML diagram](https://lh3.googleusercontent.com/keep-bbsk/AG3SVnCh1lje1ImgnrNyTx64D5bNhusVXqRl85OZuXDYTk7RU0gdLa3pzdP2HGlGBFQK2veQulMMwhdf8DxU-I-FNyC8ErPzU-8mwWArwl_qDUxjp80w=s512)
+![UML diagram](https://github.com/RommelAquinoJr/CS151-Sushi_Reservation_Site/blob/main/Images/UML%20Class%20Diagram%20CS%20151.drawio.png)
 
